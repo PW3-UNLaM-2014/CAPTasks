@@ -1,16 +1,13 @@
 CAPTasks
 ========
 
-Primer trabajo práctico de Programación Web 3
+> Primer trabajo práctico de Programación Web 3
 
 
-Especificación Funcional 
+# Especificación Funcional 
 
- 
 
-1) Registración de usuario (Ceci) 
-
- 
+## 1) Registración de usuario (Ceci) 
 
 Al  ingresar a la aplicación,  un nuevo usuario podrá registrarse para comenzar a utilizarla. Una 
 
@@ -18,11 +15,9 @@ vez registrado, el usuario recibirá un email de activación que conte
 
 su usuario registrado.. 
 
- 
 
 Los datos solicitados serán: 
 
- 
 
 ● Nombre. Máximo de 20 caracteres. Obligatorio. 
 
@@ -46,11 +41,9 @@ deben enmascarar el valor correspondiente. 
 
 ● Captcha. El usuario deberá ingresar el valor correcto para poder registrarse. 
 
- 
 
 Validaciones: 
 
- 
 
 ● En  caso de que ya exista un  usuario registrado activo  con el mismo email, se deberá 
 
@@ -62,27 +55,19 @@ permitir la registración del usuario. Activando la registración ya ex
 
 la registración del mismo. Se deberá actualizar los datos Nombre, Apellido y Contraseña. 
 
- 
-
- 
-
 El  link de activación tendrá un  tiempo  de expiración. Si dicho tiempo se excede. el usuario no 
 
 podrá  utilizarlo  y  deberá  volver  a  registrarse.  para  recibir  un  nuevo  email  de  activación.  El 
 
 período de activación es de 15 minutos desde la registración. 
 
- 
-
 Al  momento de activarse un usuario, se deberá crear una carpeta “General” que será utilizada 
 
 por defecto en aquellas tareas que no se les asocie ninguna carpeta.  
 
- 
 
-2) Login de usuario (Ceci)
+## 2) Login de usuario (Ceci)
 
- 
 
 El usuario podrá ingresar a la aplicación con su email y contraseña definidos en la registración. 
 
@@ -90,11 +75,9 @@ Al ingresar en el top del sitio aparecerá un link/boton de logout q
 
 de sesión y redirigirá a la página de Login. 
 
- 
 
 Los datos solicitados serán: 
 
- 
 
 ● Email. Máximo de 20 caracteres. Obligatorio. 
 
@@ -112,11 +95,9 @@ enmascarado. 
 
 nuevamente para ese usuario en ese navegador. 
 
- 
 
 Validaciones: 
 
- 
 
 ● El  usuario  debe estar registrado en el  sistema. Caso  contrario, se deberá  mostrar un 
 
@@ -130,17 +111,14 @@ mensaje amigable “Verifique usuario y/o contraseña.”. 
 
 deberá mostrar un mensaje amigable “Verifique usuario y/o contraseña.”. 
 
- 
 
-3) Crear Carpeta (Agos)
+## 3) Crear Carpeta (Agos)
 
- 
 
 Las carpetas se crearán para agrupar tareas. El uso de las mismas, al momento de crear una 
 
 tarea es opcional. 
 
- 
 
 Los datos solicitados son: 
 
@@ -148,21 +126,15 @@ Los datos solicitados son: 
 
 ● Descripción. Máximo de 200 caracteres. Opcional. 
 
- 
 
- 
+## 4) Crear Tarea (Agos)
 
-4) Crear Tarea (Agos)
-
- 
 
 Una vez logueado en la aplicación, el usuario podrá crear nuevas tareas dentro de la aplicación.  
 
- 
 
 Los datos solicitados serán: 
 
- 
 
 ● Nombre. Máximo de 20 caracteres. Obligatorio. 
 
@@ -184,7 +156,6 @@ posibles se obtendrán dinámicamente. Opcional. 
 
 solo lectura). 
 
- 
 
 Por defecto todas las tareas tendrán una prioridad Baja. 
 
@@ -194,16 +165,12 @@ En caso de que el usuario no haya creado carpetas o no haya selecci
 
 se deberán asociar a una carpeta “General”. 
 
- 
 
 Validaciones: 
 
- 
 
+## 5) Listar Tareas (Pau)
 
-5) Listar Tareas (Pau)
-
- 
 
 El  usuario  al  ingresar  deberá  tener  un  listado  de  las  tareas  (ordenada  por  fecha 
 
@@ -213,7 +180,6 @@ descendentemente). 
 
 desmarcado y un boton “Actualizar” que servirá como filtro de las tareas listadas. 
 
- 
 
 La grilla contendrá las siguientes columnas: 
 
