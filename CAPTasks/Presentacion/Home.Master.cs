@@ -11,7 +11,22 @@ namespace CAPTasks.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Logueado"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                string usuarioLogueado = Session["Logueado"].ToString();
+                lblUsuario.Text = usuarioLogueado;
+            }
         }
+
+        protected void btnSalir_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+  
+        }      
     }
 }
