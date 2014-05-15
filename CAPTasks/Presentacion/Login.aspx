@@ -91,6 +91,7 @@
             ValidationGroup="registracion" OnServerValidate="RecaptchaValidator_ServerValidate" />
     </div>
     <br />
+   
     <asp:Button ID="btnRegistrarse" runat="server" ValidationGroup="registracion" Text="Registrarse"
         OnClick="btnRegistrarse_Click" />
     <asp:Label ID="lblMensaje2" runat="server" ForeColor="Green" Text=""></asp:Label>

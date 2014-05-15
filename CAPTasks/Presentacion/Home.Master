@@ -4,14 +4,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>CAPTasks</title>
-   
     <!-- Core CSS - Include with every page -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
+    <link rel="Stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
+    <link rel="Stylesheet" type="text/css" media="all" href="font-awesome/css/font-awesome.css" />
     <!-- SB Admin CSS - Include with every page -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-
+    <link rel="Stylesheet" type="text/css" media="all" href="css/sb-admin.css" />
+    <!-- Core Scripts - Include with every page -->
+    <script language="javascript" type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <!-- SB Admin Scripts - Include with every page -->
+    <script language="javascript" type="text/javascript" src="js/sb-admin.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -21,17 +24,14 @@
         BIENVENIDO,
         <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
         <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" Style="height: 26px" />
-
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
     </form>
-     <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
+    <div id="pie">
+        <div class="modal-footer">
+            <b>Copyright 2014 - Todos los derechos reservados</b>
+        </div>
+    </div>
 </body>
 </html>
