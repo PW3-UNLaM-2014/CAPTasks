@@ -13,6 +13,7 @@ namespace CAPTasks.Presentacion
         {
             if (Session["Logueado"] == null)
             {
+                
                 Response.Redirect("Login.aspx");
             }
             else
@@ -25,8 +26,8 @@ namespace CAPTasks.Presentacion
         protected void btnSalir_Click(object sender, EventArgs e)
         {
             Session.Abandon();
+            Session.Clear();
             Response.Redirect("Login.aspx");
-  
         }      
     }
 }

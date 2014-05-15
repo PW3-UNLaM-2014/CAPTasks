@@ -23,8 +23,20 @@ namespace CAPTasks.Presentacion
         {
 
             if (Page.IsValid)
+            {
+                lblMensaje2.ForeColor = System.Drawing.Color.Green;
                 lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para terminar su registración";
-            
+            }
+            else
+            {
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtEmailR.Text = "";
+                txtContraseniaR.Text = "";
+                txtContraseniaR2.Text = "";
+                lblMensaje2.ForeColor = System.Drawing.Color.Red;
+                lblMensaje2.Text = "Error, vuelva a intentarlo";
+            }
         }
 
         protected void RecaptchaValidator_ServerValidate(object source, ServerValidateEventArgs args)
@@ -40,10 +52,10 @@ namespace CAPTasks.Presentacion
                 Session["Logueado"] = txtEmail.Text;
                 Response.Redirect("Home.aspx");
             }
-            //else
-            //{
-            //    lblMensaje1.Text = "Error en logueado";
-            //}
+            else
+            {
+                lblMensaje1.Text = "El Email y/o la contraseña no coinciden, verifique sus datos";
+            }
 
         }
 

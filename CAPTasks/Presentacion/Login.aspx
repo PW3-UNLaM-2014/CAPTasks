@@ -2,10 +2,8 @@
     CodeBehind="Login.aspx.cs" Inherits="CAPTasks.Presentacion.Login1" %>
 
 <%@ Register Assembly="Recaptcha" Namespace="Recaptcha" TagPrefix="uc1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="ContentLogin" ContentPlaceHolderID="ContentHeaderLogin" runat="server">
     <h3>
         Inicio de Sesión</h3>
@@ -78,6 +76,9 @@
     <asp:Label ID="lblContraseniaR2" runat="server" Text="Repita contraseña:"></asp:Label>
     <br />
     <asp:TextBox ID="txtContraseniaR2" runat="server" TextMode='Password'></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtContraseniaR2"
+        ValidationGroup="registracion" Display="Dynamic" ForeColor="Red" runat="server"
+        ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
     <asp:CompareValidator ID="CompareValidator1" ControlToValidate="txtContraseniaR2"
         ControlToCompare="txtContraseniaR" ValidationGroup="registracion" Display="Dynamic"
         ForeColor="Red" runat="server" ErrorMessage="Las contraseñas deben ser iguales"></asp:CompareValidator>
@@ -87,12 +88,11 @@
     <div>
         <uc1:RecaptchaControl ID="RecaptchaControl2" runat="server" PublicKey="6LcOscwSAAAAAClgCVVWUOLx-EVBWlIbUldCPzAd "
             PrivateKey="6LcOscwSAAAAAH6wOwoy0TAFkJBlzPcrg4I6kXuE" Language="" />
-        <asp:CustomValidator ID="RecaptchaValidator" runat="server" ForeColor="Red" ErrorMessage="Error, vuelva a intentarlo"
-            ValidationGroup="registracion" OnServerValidate="RecaptchaValidator_ServerValidate" />
+        <asp:CustomValidator ID="RecaptchaValidator" runat="server" ForeColor="Red" ValidationGroup="registracion"
+            OnServerValidate="RecaptchaValidator_ServerValidate" />
     </div>
     <br />
-   
     <asp:Button ID="btnRegistrarse" runat="server" ValidationGroup="registracion" Text="Registrarse"
         OnClick="btnRegistrarse_Click" />
-    <asp:Label ID="lblMensaje2" runat="server" ForeColor="Green" Text=""></asp:Label>
+    <asp:Label ID="lblMensaje2" runat="server" Text=""></asp:Label>
 </asp:Content>
