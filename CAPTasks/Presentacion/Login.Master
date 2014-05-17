@@ -20,7 +20,12 @@
 </head>
 <body>
     <form id="formGeneral" runat="server">
-    <div class='header'>
+    <div class='header container'>
+        <div class="col-md-6">
+            <h1>
+                CAPTasks
+            </h1>
+        </div>
         <asp:ContentPlaceHolder ID="ContentHeaderLogin" runat="server">
         </asp:ContentPlaceHolder>
     </div>
