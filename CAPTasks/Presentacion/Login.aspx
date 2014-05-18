@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="ContentLogin" ContentPlaceHolderID="ContentHeaderLogin" runat="server">
-   
+   <%--INICIO DE SESSION --%>
         <div class="col-md-6">
             <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -25,7 +25,8 @@
             <asp:ValidationSummary ID="ValidationSummary1" ShowSummary="true" HeaderText="Preste atención a estos errores y vuelva a intentarlo:"
                 DisplayMode="BulletList" ForeColor="Red" ValidationGroup="ingresar" runat="server"
                 Width="459px" />
-            <asp:CheckBox ID="CheckBox1" Text="Recordar mis datos" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
+            <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" 
+                oncheckedchanged="ckbRecordarme_CheckedChanged"/>
             <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Ingresar"
                 OnClick="btnIngresar_Click" />
             <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
@@ -33,6 +34,7 @@
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentRegistracion" runat="server">
+  <%--REGISTRACION--%>
     <div class="container">
         <div class="col-md-6 col-md-offset-6">
             <h2>
@@ -98,6 +100,7 @@
             <br />
             <asp:Button ID="btnRegistrarse" runat="server" ValidationGroup="registracion" Text="Registrarse"
                 OnClick="btnRegistrarse_Click" />
+                <br />
             <asp:Label ID="lblMensaje2" runat="server" Text=""></asp:Label>
         </div>
     </div>

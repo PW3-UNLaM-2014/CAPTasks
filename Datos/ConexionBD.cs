@@ -11,11 +11,11 @@ namespace Datos
     class ConexionBD
     {
         SqlConnection sqlconn;
-        //public SqlConnection Sqlconn
-        //{
-        //    get { return sqlconn; }
-        //    set { sqlconn = value; }
-        //}
+        public SqlConnection Sqlconn
+        {
+            get { return sqlconn; }
+            set { sqlconn = value; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             conectar();

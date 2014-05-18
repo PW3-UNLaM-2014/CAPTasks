@@ -10,6 +10,8 @@ namespace CAPTasks.Presentacion
 {
     public partial class Login1 : System.Web.UI.Page
     {
+        UsuarioServicios us = new UsuarioServicios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["Preferencias"] != null)
@@ -25,7 +27,7 @@ namespace CAPTasks.Presentacion
             if (Page.IsValid)
             {
                 lblMensaje2.ForeColor = System.Drawing.Color.Green;
-                lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para terminar su registración";
+                lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para confirmar su registración";
             }
             else
             {
@@ -57,9 +59,9 @@ namespace CAPTasks.Presentacion
                 lblMensaje1.Text = "El Email y/o la contraseña no coinciden, verifique sus datos";
             }
 
-        }
+        } 
 
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        protected void ckbRecordarme_CheckedChanged(object sender, EventArgs e)
         {
             HttpCookie cookie = Request.Cookies["Preferencias"];
             if (cookie == null)
@@ -68,6 +70,7 @@ namespace CAPTasks.Presentacion
             cookie.Values["Contrasenia"] = Encryptor.MD5Hash(txtContrasenia.Text);
             cookie.Expires = DateTime.Now.AddDays(1);
             Response.Cookies.Add(cookie);
+
         }
     }
 }

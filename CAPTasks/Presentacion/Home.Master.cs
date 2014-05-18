@@ -10,17 +10,19 @@ namespace CAPTasks.Presentacion
     public partial class Home : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["Logueado"] == null)
-            {
-                
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
-                string usuarioLogueado = Session["Logueado"].ToString();
-                lblUsuario.Text = usuarioLogueado;
-            }
+        {  
+            //DESCOMENTAR PARA PROBAR LA SESSION:
+
+            //if (Session["Logueado"] == null)
+            //{
+
+            //    Response.Redirect("Login.aspx");
+            //}
+            //else
+            //{
+            //    string usuarioLogueado = Session["Logueado"].ToString();
+            //    lblUsuario.Text = usuarioLogueado;
+            //}
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
