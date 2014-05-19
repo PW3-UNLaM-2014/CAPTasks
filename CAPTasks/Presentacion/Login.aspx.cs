@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using Entidades;
 
 namespace CAPTasks.Presentacion
 {
     public partial class Login1 : System.Web.UI.Page
     {
         UsuarioServicios us = new UsuarioServicios();
-
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["Preferencias"] != null)
@@ -20,13 +21,19 @@ namespace CAPTasks.Presentacion
                 txtContrasenia.Attributes.Add("Value", Request.Cookies["Preferencias"]["Contrasenia"].ToString());
             }
         }
-
+        
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
+            Usuario usuario = new Usuario();
 
             if (Page.IsValid)
             {
-                //us.CrearNuevoUsuario(Usuario usuario);
+               
+                usuario.Nombre = txtNombre.Text;
+                usuario.Apellido = txtApellido.Text;
+                usuario.Email = txtEmailR.Text;
+                usuario.Contrasenia = txtContraseniaR.Text;
+                us.CrearNuevoUsuario(usuario);
                 lblMensaje2.ForeColor = System.Drawing.Color.Green;
                 lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para confirmar su registración";
             }

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{60BB2378-8F66-4B49-9666-DB4BD1BA9223}</ProjectGuid>
+    <ProjectGuid>{ACB3D0C0-E034-4DD3-A20F-C0261562622B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Datos</RootNamespace>
-    <AssemblyName>Datos</AssemblyName>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,16 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="ConexionBD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioDatos.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{ACB3D0C0-E034-4DD3-A20F-C0261562622B}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

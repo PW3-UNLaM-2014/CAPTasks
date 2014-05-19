@@ -99,6 +99,10 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{ACB3D0C0-E034-4DD3-A20F-C0261562622B}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{83D9289C-7C8C-41A4-81B0-AD8C8A2CF09F}</Project>
       <Name>Negocio</Name>
