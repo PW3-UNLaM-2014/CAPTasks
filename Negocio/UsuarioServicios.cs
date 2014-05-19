@@ -12,6 +12,9 @@ namespace Negocio
     {
         UsuarioDatos ud = new UsuarioDatos();
         //Metodos
-        
+        //public void CrearNuevoUsuario(Usuario usuario)
+        //{
+        //  ud.CrearNuevoUsuario(usuario);
+        //}
     }
 }

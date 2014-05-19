@@ -26,6 +26,7 @@ namespace CAPTasks.Presentacion
 
             if (Page.IsValid)
             {
+                //us.CrearNuevoUsuario(Usuario usuario);
                 lblMensaje2.ForeColor = System.Drawing.Color.Green;
                 lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para confirmar su registración";
             }
