@@ -4,17 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>CAPTasks</title>
-    <!-- Core CSS - Include with every page -->
+    <!-- Core CSS -->
     <link rel="Stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
     <link rel="Stylesheet" type="text/css" media="all" href="font-awesome/css/font-awesome.css" />
-    <!-- SB Admin CSS - Include with every page -->
+    <!-- SB Admin CSS  -->
     <link rel="Stylesheet" type="text/css" media="all" href="css/sb-admin.css" />
-    <!-- Core Scripts - Include with every page -->
+    <!-- Core Scripts -->
     <script language="javascript" type="text/javascript" src="js/jquery-1.10.2.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script language="javascript" type="text/javascript" src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <!-- SB Admin Scripts - Include with every page -->
-    <script language="javascript" type="text/javascript" src="js/sb-admin.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
