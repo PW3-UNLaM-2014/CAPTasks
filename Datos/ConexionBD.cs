@@ -31,7 +31,7 @@ namespace Datos
         {
             SqlConnectionStringBuilder miConexion = new SqlConnectionStringBuilder();
             miConexion.DataSource = "CECILIA\\SQLEXPRESS"; // PONER EL NOMBRE DEL SERVIDOR PROPIO
-            miConexion.InitialCatalog = " ";//PONER NOMBRE DE LA BD!!!
+            miConexion.InitialCatalog = "CAPTasks";
             miConexion.IntegratedSecurity = true;
             return miConexion.ConnectionString;
         }

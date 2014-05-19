@@ -8,17 +8,17 @@
    <%--INICIO DE SESSION --%>
         <div class="col-md-6">
             <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
-            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             <asp:Label ID="lblContrasenia" runat="server" Text="Contraseña:"></asp:Label>
             <br />
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" placeholder="Ingrese email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtEmail"
                 ValidationGroup="ingresar" Display="Dynamic" runat="server" ForeColor="Red" Text="*"
                 ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtEmail"
                 ValidationGroup="ingresar" Display="Dynamic" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                 ForeColor="Red" runat="server" Text="!" ErrorMessage="!Formato invalido"></asp:RegularExpressionValidator>
-            <asp:TextBox ID="txtContrasenia" TextMode="Password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtContrasenia" TextMode="Password" runat="server" placeholder="Ingrese contraseña"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtContrasenia"
                 ValidationGroup="ingresar" Display="Dynamic" ForeColor="Red" runat="server" Text="*"
                 ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
@@ -27,7 +27,8 @@
                 Width="459px" />
             <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" 
                 oncheckedchanged="ckbRecordarme_CheckedChanged"/>
-            <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Ingresar"
+                
+            <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Ingresar" class="btn btn-primary"
                 OnClick="btnIngresar_Click" />
             <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
         </div>
@@ -98,7 +99,7 @@
                     OnServerValidate="RecaptchaValidator_ServerValidate" />
             </div>
             <br />
-            <asp:Button ID="btnRegistrarse" runat="server" ValidationGroup="registracion" Text="Registrarse"
+            <asp:Button ID="btnRegistrarse" runat="server" ValidationGroup="registracion" Text="Registrarse" class="btn btn-success btn-lg"
                 OnClick="btnRegistrarse_Click" />
                 <br />
             <asp:Label ID="lblMensaje2" runat="server" Text=""></asp:Label>

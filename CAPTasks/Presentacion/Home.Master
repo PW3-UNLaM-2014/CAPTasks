@@ -28,7 +28,7 @@
 
             BIENVENIDO,
             <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
-            <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" Style="height: 26px" />
+            <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" class="btn btn-default" />
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
