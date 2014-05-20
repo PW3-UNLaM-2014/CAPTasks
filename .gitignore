@@ -172,3 +172,6 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Se quita el archivo ConexionBD.cs para tenerlo configurado localmente en cada maquina
+Datos/ConexionBD.cs
