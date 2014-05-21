@@ -20,7 +20,7 @@ INSERT INTO [dbo].[Usuarios]
 --IdUsuario es identity
 ([Nombre],[Apellido],[Email],[Contrasenia],[Estado],[FechaCreacion],[FechaActivacion],[CodigoActivacion])
 VALUES
-(@NOMBRE,@APELLIDO,@EMAIL,@CONTRASENIA,0,GETDATE(),GETDATE(),@CODIGOACTIVACION)
+(@NOMBRE,@APELLIDO,@EMAIL,@CONTRASENIA,0,GETDATE(),'00:00:00',@CODIGOACTIVACION)
 END
 END
 GO
@@ -34,18 +34,30 @@ GO
 -- END
 --GO
 ------------------------------------------------------------------------------------------
---CREATE PROCEDURE [dbo].[p_ConfirmarRegistro]
---@EMAIL nvarchar(20),
---@CODIGOACTIVACION nvarchar(30)
---AS
---BEGIN 
---IF EXISTS(SELECT 1 FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [CodigoActivacion]=@CODIGOACTIVACION)
---BEGIN
---UPDATE [dbo].[Usuarios]
---SET [Estado]=1, [FechaActivacion]=GETDATE(),[CodigoActivacion]=NULL
---WHERE [Email]=@EMAIL AND [CodigoActivacion]=@CODIGOACTIVACION 
---AND DATEDIFF(MINUTE,[FechaCreacion],GETDATE())<15  ----EL LINK DE ACTIVACION ES VALIDO POR 15" 
---END
---END
---GO
+CREATE PROCEDURE [dbo].[p_ConfirmaRegistro]
+@CODIGOACTIVACION nvarchar(30)
+AS
+BEGIN 
+IF EXISTS(SELECT 1 FROM [dbo].[Usuarios] WHERE [CodigoActivacion]=@CODIGOACTIVACION)
+BEGIN
+UPDATE [dbo].[Usuarios]
+SET [Estado]=1, [FechaActivacion]=GETDATE()
+WHERE  [CodigoActivacion]=@CODIGOACTIVACION 
+AND DATEDIFF(MINUTE,[FechaCreacion],GETDATE())<15  ----EL LINK DE ACTIVACION ES VALIDO POR 15" 
+IF(@@ROWCOUNT = 0)
+BEGIN
+ RAISERROR('Vencio el plazo de validez del enlace',16,1)
+END
+END
+END
+GO
+--------------------------------------------------------------------------------------
+CREATE PROCEDURE [dbo].[p_VerificarEmail]
+@EMAIL nvarchar(20)
+AS
+BEGIN 
+SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]=1
+END
+GO
+
 
