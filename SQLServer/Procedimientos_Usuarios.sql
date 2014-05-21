@@ -52,12 +52,12 @@ END
 END
 GO
 --------------------------------------------------------------------------------------
-CREATE PROCEDURE [dbo].[p_VerificarEmail]
-@EMAIL nvarchar(20)
-AS
-BEGIN 
-SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]=1
-END
-GO
+--CREATE PROCEDURE [dbo].[p_VerificarEmail]
+--@EMAIL nvarchar(20)
+--AS
+--BEGIN 
+--SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]=1
+--END
+--GO
 
 
