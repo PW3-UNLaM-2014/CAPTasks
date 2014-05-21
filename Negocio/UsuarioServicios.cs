@@ -12,10 +12,20 @@ namespace Negocio
     public class UsuarioServicios
     {
         UsuarioDatos ud = new UsuarioDatos();
-        //Metodos
+
+        //METODOS:
         public void CrearNuevoUsuario(Usuario usuario)
         {
             ud.CrearNuevoUsuario(usuario);
         }
+        public bool ActivarUsuario(string codac)
+        {
+            return ud.ActivarUsuario(codac);
+        }
+        //public List<Usuario> VerificarEmail(string email)
+        //{
+        //    return ud.VerificarEmail(email);
+        //}
+
     }
 }
