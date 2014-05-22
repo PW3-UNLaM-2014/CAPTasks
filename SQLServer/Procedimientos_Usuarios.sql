@@ -52,11 +52,25 @@ END
 END
 GO
 --------------------------------------------------------------------------------------
---CREATE PROCEDURE [dbo].[p_VerificarEmail]
---@EMAIL nvarchar(20)
+CREATE PROCEDURE [dbo].[p_VerificarEmail]
+@EMAIL nvarchar(20)
+AS
+BEGIN 
+SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]=1
+END
+GO
+--------------------------------------------------------------------------------------
+--CREATE PROCEDURE [dbo].[p_CrearCarpetaGeneral]
+--@ID  int,
+--@NOMBRE nvarchar(20),
+--@DESCRIPCION nvarchar(200)
 --AS
---BEGIN 
---SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]=1
+--BEGIN
+--INSERT INTO [dbo].[Carpetas]
+----IdUsuario es identity
+--([IdUsuario],[Nombre],[Descripcion])
+--VALUES
+--(@ID,@NOMBRE,@DESCRIPCION)
 --END
 --GO
 

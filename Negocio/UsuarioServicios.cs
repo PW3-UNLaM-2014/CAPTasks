@@ -18,14 +18,22 @@ namespace Negocio
         {
             ud.CrearNuevoUsuario(usuario);
         }
-        public bool ActivarUsuario(string codac)
+
+        public bool ActivarUsuario(string codAct)
         {
-            return ud.ActivarUsuario(codac);
+            return ud.ActivarUsuario(codAct);
         }
-        //public List<Usuario> VerificarEmail(string email)
+
+        public List<Usuario> VerificarEmail(string email)
+        {
+            return ud.VerificarEmail(email);
+        }
+
+        //public void CrearCarpetaGeneral(int idUsuario,string nombre, string descripcion)
         //{
-        //    return ud.VerificarEmail(email);
+        //    ud.CrearCarpetaGeneral(idUsuario,nombre, descripcion);
         //}
+       
 
     }
 }

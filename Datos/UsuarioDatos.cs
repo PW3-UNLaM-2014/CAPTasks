@@ -13,6 +13,9 @@ namespace Datos
     public class UsuarioDatos
     {
         ConexionBD miConexion = new ConexionBD();
+        Usuario miUsuario = new Usuario();
+        Carpeta carpetaGeneral = new Carpeta(); // PARA CREAR CARPETA CUANDO CONFIRMA REGISTRO
+        
 
         //REGISTRACION DE USUARIOS:
         public void CrearNuevoUsuario(Usuario usuario)
@@ -38,11 +41,11 @@ namespace Datos
         }
 
         //ACTIVACION DE REGISTRACION:
-        public bool ActivarUsuario(string codac)
+        public bool ActivarUsuario(string codAct)
         {
             if (miConexion.conectar())
             {
-                SqlParameter parametroCodac = new SqlParameter("@CODIGOACTIVACION", codac);
+                SqlParameter parametroCodac = new SqlParameter("@CODIGOACTIVACION", codAct);
                 SqlCommand miComando = new SqlCommand("p_ConfirmaRegistro", miConexion.Sqlconn);
                 miComando.CommandType = CommandType.StoredProcedure;
                 miComando.Parameters.Add(parametroCodac);
@@ -60,30 +63,50 @@ namespace Datos
             return false;
 
         }
+               
   
         //VERIFICAR SI YA EXISTE UN USUARIO REGISTRADO ACTIVO CON ESE MAIL EN LA LISTA DE USUARIOS:
-        //public List<Usuario> VerificarEmail(string email)
+        public List<Usuario> VerificarEmail(string email)
+        {
+            if (miConexion.conectar())
+            {
+                SqlParameter parametroUsuario = new SqlParameter("@EMAIL", email);
+                SqlCommand miComando = new SqlCommand("p_VerificarEmail", miConexion.Sqlconn);
+                miComando.CommandType = CommandType.StoredProcedure;
+                miComando.Parameters.Add(parametroUsuario);
+
+                SqlDataAdapter data = new SqlDataAdapter(); //Comandos de datos y conexión de BD que se usan para rellenar un DataSet
+                DataSet ds = new DataSet();
+                data.SelectCommand = miComando; //Le paso al objeto del SqlDataAdapter la conexion
+                data.Fill(ds); //Rellena el objeto del DataSet
+                List<Usuario> usuarioExistente = new List<Usuario>();
+               foreach (DataRow item in ds.Tables[0].Rows) //Recorro fila de datos
+               {
+                   var usuario = new Usuario(item);
+                   usuarioExistente.Add(usuario);//Agrego usuario que cumple esa regla
+               }
+               return usuarioExistente; 
+            }
+            else return null;
+        }
+        //CREACION DE LA CARPETA GENERAL CUANDO SE ACTIVA LA CUENTA:
+        //public void CrearCarpetaGeneral(int idUsuario,string nombre, string descripcion)
         //{
         //    if (miConexion.conectar())
         //    {
-        //        SqlParameter parametroUsuario = new SqlParameter("@EMAIL", email);
-        //        SqlCommand miComando = new SqlCommand("p_VerificarEmail", miConexion.Sqlconn);
-        //        miComando.CommandType = CommandType.StoredProcedure;
-        //        miComando.Parameters.Add(parametroUsuario);
+        //        SqlParameter parametroId = new SqlParameter("@ID", idUsuario);
+        //        SqlParameter parametroNombre = new SqlParameter("@NOMBRE", nombre);
+        //        SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", descripcion);
 
-        //        SqlDataAdapter data = new SqlDataAdapter(); //Comandos de datos y conexión de BD que se usan para rellenar un DataSet
-        //        DataSet ds = new DataSet();
-        //        data.SelectCommand = miComando; //Le paso al objeto del SqlDataAdapter la conexion
-        //        data.Fill(ds); //Rellena el objeto del DataSet
-        //        List<Usuario> usuarioExistente = new List<Usuario>();
-        //        foreach (DataRow item in ds.Tables[0].Rows) //Recorro fila de datos
-        //        {
-        //            var usuario = new Usuario();
-        //            usuarioExistente.Add(usuario);
-        //        }
-        //        return usuarioExistente;
+        //        SqlCommand miComando = new SqlCommand("p_CrearCarpetaGeneral", miConexion.Sqlconn);
+        //        miComando.CommandType = CommandType.StoredProcedure;
+        //        miComando.Parameters.Add(parametroId);
+        //        miComando.Parameters.Add(parametroNombre);
+        //        miComando.Parameters.Add(parametroDescripcion);
+        //        miComando.ExecuteNonQuery();
         //    }
-        //    else return null;
+        //    miConexion.Sqlconn.Close();
         //}
+             
     }
 }
