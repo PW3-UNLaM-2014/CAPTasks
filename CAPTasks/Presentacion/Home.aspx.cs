@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
+using Negocio;
 
 namespace CAPTasks.Presentacion
 {
@@ -17,31 +19,30 @@ namespace CAPTasks.Presentacion
         protected void btnGuardarTarea(object sender, EventArgs e)
         {
             Tarea tarea = new Tarea();
-            TareaService tareaService = new TareaService();
+            TareaServicios tareaService = new TareaServicios();
 
             if (Page.IsValid)
             {
 
-                tarea.IdCarpeta = nuevaTareaIdCarpeta.Text;
-                tarea.IdUsuario = nuevaTareaIdUsuario.Text;
+                //tarea.IdCarpeta = nuevaTareaIdCarpeta.Text;
+                //tarea.IdUsuario = Session.SessionID;
                 tarea.Nombre = nuevaTareaNombre.Text;
                 tarea.Descripcion = nuevaTareaDescripcion.Text;
-                tarea.Fecha = nuevaTareaFecha.Calendar;
-                tarea.Prioridad = nuevaTareaPrioridad.Text;
-                tarea.Estado = nuevaTareaEstado.Text;
-                tareaService.CrearNuevoUsuario(tarea);
+                tarea.Fecha = nuevaTareaFecha.SelectedDate;
+                //tarea.Prioridad = nuevaTareaPrioridad.Text;
+                //tarea.Estado = Convert.ToBoolean(nuevaTareaEstado.Checked);
+                tareaService.CrearNuevaTarea(tarea);
                 nuevaTareaInformacionEstado.ForeColor = System.Drawing.Color.Green;
                 nuevaTareaInformacionEstado.Text = "Tarea agregada correctamente.";
             }
             else
             {
-                nuevaTareaIdCarpeta.Text = '';
-                nuevaTareaIdUsuario.Text = '';
-                nuevaTareaNombre.Text = '';
-                nuevaTareaDescripcion.Text = '';
-                nuevaTareaFecha.Calendar = '';
-                nuevaTareaPrioridad.Text = '';
-                nuevaTareaEstado.Text = '';
+                //nuevaTareaIdCarpeta.Text = ' ';
+                //nuevaTareaNombre.Text = ' ';
+                //nuevaTareaDescripcion.Text = ' ';
+                //nuevaTareaFecha.SelectedDate = ' ';
+                //nuevaTareaPrioridad.Text = ' ';
+                //nuevaTareaEstado.Text = ' ';
                 nuevaTareaInformacionEstado.ForeColor = System.Drawing.Color.Red;
                 nuevaTareaInformacionEstado.Text = "Error creando la tarea, vuelva a intentarlo";
             }

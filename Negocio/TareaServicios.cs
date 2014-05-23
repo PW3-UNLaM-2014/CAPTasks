@@ -11,12 +11,12 @@ namespace Negocio
 
     public class TareaServicios
     {
-        TareaDatos td = new Tarea();
+        TareaDatos td = new TareaDatos();
 
         //METODOS:
-        public void CrearNuevaTarea(Usuario usuario)
+        public void CrearNuevaTarea(Tarea tarea)
         {
-            ud.CrearNuevoUsuario(usuario);
+            td.CrearNuevaTarea(tarea);
         }
 
 

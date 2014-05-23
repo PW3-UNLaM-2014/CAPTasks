@@ -19,25 +19,25 @@
                 </div>
                 <div class="modal-body">
                     
-                    <asp:Label Text="" name="nuevaTareaInformacionEstado" runat="server" />
+                    <asp:Label Text="" ID="nuevaTareaInformacionEstado" runat="server" />
                     <br />
                     <asp:Label Text="Nombre" runat="server" for="nuevaTareaNombre" />
-                    <asp:TextBox runat="server" name="nuevaTareaNombre" value="Escriba aqui la tarea" />
+                    <asp:TextBox runat="server" ID="nuevaTareaNombre" value="Escriba aqui la tarea" />
                     <br />
                     <asp:Label Text="Descripcion" runat="server" for="nuevaTareaDescripcion" />
-                    <asp:TextBox ID="TextBox1" runat="server" name="nuevaTareaDescripcion" value="Escriba aqui la descripcion" />
+                    <asp:TextBox runat="server" ID="nuevaTareaDescripcion" value="Escriba aqui la descripcion" />
                     <br />
                     <asp:Label Text="Fecha" runat="server" for="nuevaTareaFecha" />
-                    <asp:Calendar runat="server" name="nuevaTareaFecha" />
+                    <asp:Calendar runat="server" ID="nuevaTareaFecha" />
                     <br />
                     <asp:Label Text="Prioridad" for="nuevaTareaPrioridad" runat="server" />
-                    <asp:TextBox runat="server" name="nuevaTareaPrioridad" />
+                    <asp:TextBox runat="server" ID="nuevaTareaPrioridad" />
                     <br />
-                    <asp:Label Text="Carpeta" for="nuevaTareaCarpeta" runat="server" />
-                    <asp:TextBox runat="server" name="nuevaTareaCarpeta" />
+                    <asp:Label Text="Carpeta" for="nuevaTareaIdCarpeta" runat="server" />
+                    <asp:TextBox runat="server" ID="nuevaTareaIdCarpeta" />
                     <br />
                     <asp:Label Text="Estado" for="nuevaTareaEstado" runat="server" />
-                    <input type="checkbox" name="nuevaTareaEstado" value="completada" />
+                    <asp:CheckBox Text="completada" runat="server"  ID="nuevaTareaEstado" />
                    
                 </div>
                 <div class="modal-footer">
