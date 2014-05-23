@@ -11,7 +11,7 @@ namespace Entidades
         public int IdUsuario { set; get; }
         public string Nombre { set; get; }
         public string Descripcion { set; get; }
-        public DateTime fecha { set; get; }
+        public DateTime Fecha { set; get; }
         public int Prioridad { set; get; }
         public int Estado { set; get; }
     }
