@@ -14,8 +14,7 @@ namespace Datos
     {
         ConexionBD miConexion = new ConexionBD();
         Usuario miUsuario = new Usuario();
-        Carpeta carpetaGeneral = new Carpeta(); // PARA CREAR CARPETA CUANDO CONFIRMA REGISTRO
-        
+
 
         //REGISTRACION DE USUARIOS:
         public void CrearNuevoUsuario(Usuario usuario)
@@ -89,24 +88,57 @@ namespace Datos
             }
             else return null;
         }
-        //CREACION DE LA CARPETA GENERAL CUANDO SE ACTIVA LA CUENTA:
-        //public void CrearCarpetaGeneral(int idUsuario,string nombre, string descripcion)
-        //{
-        //    if (miConexion.conectar())
-        //    {
-        //        SqlParameter parametroId = new SqlParameter("@ID", idUsuario);
-        //        SqlParameter parametroNombre = new SqlParameter("@NOMBRE", nombre);
-        //        SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", descripcion);
+        // METODO PARA PODER LOGUEARSE:
+        public Usuario TraerDatosUsuario(string mail)
+        {
 
-        //        SqlCommand miComando = new SqlCommand("p_CrearCarpetaGeneral", miConexion.Sqlconn);
-        //        miComando.CommandType = CommandType.StoredProcedure;
-        //        miComando.Parameters.Add(parametroId);
-        //        miComando.Parameters.Add(parametroNombre);
-        //        miComando.Parameters.Add(parametroDescripcion);
-        //        miComando.ExecuteNonQuery();
-        //    }
-        //    miConexion.Sqlconn.Close();
-        //}
-             
+            Usuario miUsuario = new Usuario();
+            if (miConexion.conectar())
+            {
+                SqlParameter parametroUsuario = new SqlParameter("@EMAIL", mail);
+                SqlCommand miComando = new SqlCommand("p_Login", miConexion.Sqlconn);
+                miComando.CommandType = CommandType.StoredProcedure;
+                miComando.Parameters.Add(parametroUsuario);
+
+                SqlDataAdapter data = new SqlDataAdapter();
+                DataSet ds = new DataSet();
+                data.SelectCommand = miComando;
+
+                data.Fill(ds);
+
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    miUsuario = new Usuario(item);
+
+                }
+
+                return miUsuario;
+            }
+            else
+            {
+                
+                return null;
+            }
+
+        }
+        //CREACION DE CARPETA GENERAL:
+        public void CrearCarpetaGeneral(int id, string nombre, string descripcion)
+        {
+            if (miConexion.conectar())
+            {
+                SqlParameter parametroId = new SqlParameter("@ID", id);
+                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", nombre);
+                SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", descripcion);
+
+
+                SqlCommand miComando = new SqlCommand("p_CrearCarpetaGeneral", miConexion.Sqlconn);
+                miComando.CommandType = CommandType.StoredProcedure;
+                miComando.Parameters.Add(parametroId);
+                miComando.Parameters.Add(parametroNombre);
+                miComando.Parameters.Add(parametroDescripcion);
+                miComando.ExecuteNonQuery();
+            }
+            miConexion.Sqlconn.Close();
+        }    
     }
 }

@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class Usuario
     {
-        public int idUsuario { set; get; }
+        public int IdUsuario { set; get; }
         public string Nombre { set; get; }
         public string Apellido { set; get; }
         public string Email { set; get; }
@@ -22,9 +22,9 @@ namespace Entidades
         {
             if (dr != null)
             {
-                if (dr["idUsuario"] != null)
+                if (dr["IdUsuario"] != null)
                 {
-                    this.idUsuario = Convert.ToInt32(dr["idUsuario"]);
+                    this.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
                 }
                 if (dr["Nombre"] != null)
                 {

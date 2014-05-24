@@ -13,7 +13,6 @@ namespace Negocio
     {
         UsuarioDatos ud = new UsuarioDatos();
 
-        //METODOS:
         public void CrearNuevoUsuario(Usuario usuario)
         {
             ud.CrearNuevoUsuario(usuario);
@@ -29,11 +28,16 @@ namespace Negocio
             return ud.VerificarEmail(email);
         }
 
-        //public void CrearCarpetaGeneral(int idUsuario,string nombre, string descripcion)
-        //{
-        //    ud.CrearCarpetaGeneral(idUsuario,nombre, descripcion);
-        //}
-       
+        public Usuario TraerDatosUsuario(string emailIngresado)
+        {
+
+            return ud.TraerDatosUsuario(emailIngresado);
+        }
+
+        public void CrearCarpetaGeneral(int id, string nombre, string descripcion)
+        {
+            ud.CrearCarpetaGeneral(id, nombre, descripcion);
+        }
 
     }
 }

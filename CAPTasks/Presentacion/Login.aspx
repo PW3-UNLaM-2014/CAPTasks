@@ -9,7 +9,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <asp:Label ID="lblEmail" class="sr-only" runat="server" Text="Email:"></asp:Label>
-            <asp:TextBox ID="txtEmail" class="form-control input-sm" runat="server" placeholder="Ingrese email"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" class="form-control input-sm" MaxLength=20 runat="server" placeholder="Ingrese email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtEmail"
                 ValidationGroup="ingresar" Display="Dynamic" runat="server" ForeColor="Red" Text="*"
                 ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
@@ -30,7 +30,7 @@
         </div>
         <div class="checkbox">
             <label>
-                <asp:CheckBox ID="CheckBox1" Text="Recordar mis datos" runat="server" OnCheckedChanged="ckbRecordarme_CheckedChanged" />
+                <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" OnCheckedChanged="ckbRecordarme_CheckedChanged" />
             </label>
         </div>
         <asp:Button ID="Button1" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"
@@ -66,13 +66,14 @@
             <br />
             <asp:Label ID="lblEmailR" runat="server" Text="Email:"></asp:Label>
             <br />
-            <asp:TextBox ID="txtEmailR" class="form-control" runat="server" TextMode="Email"></asp:TextBox>
+           <%-- Condicion que el mail no tenga mas de 20 caracteres!!--%>
+            <asp:TextBox ID="txtEmailR" class="form-control" MaxLength=20  runat="server" TextMode="Email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtEmailR"
                 ValidationGroup="registracion" Display="Dynamic" ForeColor="Red" runat="server"
                 ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtEmailR"
                 ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="registracion"
-                Display="Dynamic" ForeColor="Red" runat="server" ErrorMessage="Formato invalido"></asp:RegularExpressionValidator>
+                Display="Dynamic" ForeColor="Red" runat="server" ErrorMessage="Formato invalido.Maximo 20 caracteres"></asp:RegularExpressionValidator>
             <br />
             <asp:Label ID="lblContraseniaR" runat="server" Text="Contraseña:"></asp:Label>
             <br />

@@ -19,11 +19,6 @@ namespace CAPTasks.Presentacion
             if (us.ActivarUsuario(codAct))
             {
                 divRegistro.InnerHtml = "<h3>Su cuenta se habilito correctamente. Ingrese al sistema con su correo electronico y contraseña.</h3>";
-               //ACA SE DEBERIA CREAR POR DEFECTO LA CARPETA General UNA VEZ QUE SE ACTIVA LA CUENTA:
-               //
-               //string nombre = "General";
-               //string descripcion = "Carpeta creada por defecto para tareas que no se les asocien ninguna carpeta";
-               //us.CrearCarpetaGeneral(idUsuario,nombre, descripcion);
             }
             else
             {

@@ -10,7 +10,7 @@ CREATE PROCEDURE [dbo].[p_CrearUsuario]
 --@ESTADO smallint : Se inserta por defecto en 0=Inactivo y luego pasa a 1=Activo
 AS
 BEGIN
- IF EXISTS(SELECT 1 FROM [dbo].[Usuarios] WHERE [Email] = @EMAIL AND [Estado] = 0)
+ IF EXISTS(SELECT 1 FROM [dbo].[Usuarios] WHERE [Email] = @EMAIL AND [Estado] <> 1)
   UPDATE [dbo].[Usuarios]
   SET [Nombre]=@NOMBRE, [Apellido]=@APELLIDO, [Contrasenia]=@CONTRASENIA,[FechaCreacion]=GETDATE(),Estado = 0
   WHERE [Email]=@EMAIL
@@ -25,14 +25,13 @@ END
 END
 GO
 ------------------------------------------------------------------------------------------
---CREATE PROCEDURE [dbo].[p_Login]
---@EMAIL nvarchar (20),
---@CONTRASENIA nvarchar(50)
---AS
---BEGIN
--- SELECT * FROM [dbo].[Usuarios] WHERE Email=@EMAIL AND Contrasenia=@CONTRASENIA AND Estado = 1
--- END
---GO
+CREATE PROCEDURE [dbo].[p_Login]
+@EMAIL nvarchar (20)
+AS
+BEGIN
+ SELECT * FROM [dbo].[Usuarios] WHERE Email=@EMAIL 
+ END
+GO
 ------------------------------------------------------------------------------------------
 CREATE PROCEDURE [dbo].[p_ConfirmaRegistro]
 @CODIGOACTIVACION nvarchar(30)
@@ -56,22 +55,22 @@ CREATE PROCEDURE [dbo].[p_VerificarEmail]
 @EMAIL nvarchar(20)
 AS
 BEGIN 
-SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]=1
+SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]<>0
 END
 GO
 --------------------------------------------------------------------------------------
---CREATE PROCEDURE [dbo].[p_CrearCarpetaGeneral]
---@ID  int,
---@NOMBRE nvarchar(20),
---@DESCRIPCION nvarchar(200)
---AS
---BEGIN
---INSERT INTO [dbo].[Carpetas]
-----IdUsuario es identity
---([IdUsuario],[Nombre],[Descripcion])
---VALUES
---(@ID,@NOMBRE,@DESCRIPCION)
---END
---GO
-
+CREATE PROCEDURE [dbo].[p_CrearCarpetaGeneral]
+@ID int,
+@NOMBRE nvarchar(20),
+@DESCRIPCION nvarchar(200)
+AS
+BEGIN 
+IF NOT EXISTS(SELECT 1 FROM [dbo].[Carpetas] WHERE [Nombre]=@NOMBRE AND [IdUsuario]=@ID)
+BEGIN
+INSERT INTO [dbo].[Carpetas]
+(IdUsuario,Nombre,Descripcion)
+VALUES(@ID,@NOMBRE,@DESCRIPCION)
+END
+END
+GO
 
