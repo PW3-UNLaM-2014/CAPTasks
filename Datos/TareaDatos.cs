@@ -16,7 +16,7 @@ namespace Datos
         Tarea miTarea = new Tarea();
 
 
-        //REGISTRACION DE USUARIOS:
+        //Creacion de tarea:
         public void CrearNuevaTarea(Tarea tarea)
         {
             if (miConexion.conectar())
@@ -26,8 +26,7 @@ namespace Datos
                 SqlParameter parametroIdUsuario = new SqlParameter("@ID_USUARIO", tarea.IdUsuario);
                 SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", tarea.Descripcion);
                 SqlParameter parametroFecha = new SqlParameter("@FECHA", tarea.Fecha);
-                SqlParameter parametroPrioridad = new SqlParameter("@DESCRIPCION", tarea.Prioridad);
-                SqlParameter parametroEstado = new SqlParameter("@FECHA", tarea.Estado);
+                SqlParameter parametroPrioridad = new SqlParameter("@PRIORIDAD", tarea.Prioridad);
 
                 SqlCommand miComando = new SqlCommand("p_CrearTarea", miConexion.Sqlconn);
                 miComando.CommandType = CommandType.StoredProcedure;
@@ -37,7 +36,6 @@ namespace Datos
                 miComando.Parameters.Add(parametroDescripcion);
                 miComando.Parameters.Add(parametroFecha);
                 miComando.Parameters.Add(parametroPrioridad);
-                miComando.Parameters.Add(parametroEstado);
                 miComando.ExecuteNonQuery();
             }
             miConexion.Sqlconn.Close();

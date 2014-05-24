@@ -9,17 +9,15 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            
-                    <form action="home.aspx" method="post">
+                <form action="home.aspx" method="post">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;</button>
+                    <asp:Button Text="&times;" class="close" data-dismiss="modal" aria-hidden="true"
+                        runat="server" />
                     <h4 class="modal-title" id="myModalLabel">
                         Guardar tarea</h4>
                 </div>
                 <div class="modal-body">
-                    
-                    <asp:Label Text="" ID="nuevaTareaInformacionEstado" runat="server" />
+                    <asp:Label Text="" ID="lbl_nuevaTareaInformacionEstado" runat="server" />
                     <br />
                     <asp:Label Text="Nombre" runat="server" for="nuevaTareaNombre" />
                     <asp:TextBox runat="server" ID="nuevaTareaNombre" value="Escriba aqui la tarea" />
@@ -31,23 +29,24 @@
                     <asp:Calendar runat="server" ID="nuevaTareaFecha" />
                     <br />
                     <asp:Label Text="Prioridad" for="nuevaTareaPrioridad" runat="server" />
-                    <asp:TextBox runat="server" ID="nuevaTareaPrioridad" />
+                    <asp:TextBox runat="server" />
+                    <asp:DropDownList ID="ddl_nueva_tarea_prioridad" class="dropdown" runat="server">
+                        <asp:ListItem Text="text1" />
+                        <asp:ListItem Text="text2" />
+                    </asp:DropDownList>
                     <br />
                     <asp:Label Text="Carpeta" for="nuevaTareaIdCarpeta" runat="server" />
                     <asp:TextBox runat="server" ID="nuevaTareaIdCarpeta" />
                     <br />
                     <asp:Label Text="Estado" for="nuevaTareaEstado" runat="server" />
-                    <asp:CheckBox Text="completada" runat="server"  ID="nuevaTareaEstado" />
-                   
+                    <asp:CheckBox Text="completada" class="disabled" runat="server" ID="nuevaTareaEstado" />
                 </div>
                 <div class="modal-footer">
-                
-                    <asp:Button ID="btnCerrarModalTarea" class="btn btn-default" data-dismiss="modal" Text="Volver" runat="server" />
-                    
-                    <asp:Button ID="btnGuardarTarea" Text="Guardar Tarea" runat="server"  class="btn btn-primary" />
-                    
+                    <asp:Button ID="btnCerrarModalTarea" class="btn btn-default" data-dismiss="modal"
+                        Text="Volver" runat="server" />
+                    <asp:Button ID="btnGuardarTarea" Text="Guardar Tarea" runat="server" class="btn btn-primary" />
                 </div>
-                 </form>
+                </form>
             </div>
         </div>
     </div>
@@ -58,21 +57,19 @@
             <div class="modal-content">
                 <form action="home.aspx" method="post">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;</button>
+                    <asp:Button Text="&times;" runat="server" class="close" data-dismiss="modal" aria-hidden="true" />
                     <h4 class="modal-title" id="H1">
-                        Modal title</h4>
+                        Nueva carpeta</h4>
                 </div>
                 <div class="modal-body">
                     <asp:Label Text="Nombre" for="nombre" runat="server" />
                     <asp:TextBox runat="server" name="nombre" />
-                    <asp:Label ID="Label1" Text="Descripcion" runat="server" for="descripcion" />
-                    <asp:TextBox ID="TextBox2" runat="server" name="descripcion" />
+                    <asp:Label ID="lblDescripcion" Text="Descripcion" runat="server" for="descripcion" />
+                    <asp:TextBox ID="txtCarpetaDescripcion" runat="server" name="descripcion" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Close</button>
-                    <asp:Button ID="btn_guardar_carpeta" class="btn btn-primary" Text="Guardar Carpeta"
+                    <asp:Button Text="Cerrar" class="btn btn-default" data-dismiss="modal" runat="server" />
+                    <asp:Button ID="btnGuardarCarpeta" class="btn btn-primary" Text="Guardar Carpeta"
                         runat="server" />
                 </div>
                 </form>
@@ -88,9 +85,8 @@
                 <li><a href="#">Default</a></li>
             </ul>
             <!-- Button trigger modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#nuevaCarpeta">
-                Nueva Carpeta
-            </button>
+            <asp:Button Text="Nueva Carpeta" class="btn btn-primary" data-toggle="modal" data-target="#nuevaCarpeta"
+                runat="server" />
         </div>
         <div id="main" class="col-md-9">
             <h2>
@@ -98,9 +94,8 @@
             </h2>
             <asp:GridView runat="server" />
             <!-- Button trigger modal -->
-            <button class="btn btn-primary" data-toggle="modal" data-target="#nuevaTarea">
-                Nueva Tarea
-            </button>
+            <asp:Button Text="Nueva Tarea" class="btn btn-primary" data-toggle="modal" data-target="#nuevaTarea"
+                runat="server" />
         </div>
     </div>
 </asp:Content>

@@ -16,7 +16,7 @@ namespace CAPTasks.Presentacion
 
         }
 
-        protected void btnGuardarTarea(object sender, EventArgs e)
+        protected void btnGuardarTarea_Click(object sender, EventArgs e)
         {
             Tarea tarea = new Tarea();
             TareaServicios tareaService = new TareaServicios();
@@ -32,8 +32,9 @@ namespace CAPTasks.Presentacion
                 //tarea.Prioridad = nuevaTareaPrioridad.Text;
                 //tarea.Estado = Convert.ToBoolean(nuevaTareaEstado.Checked);
                 tareaService.CrearNuevaTarea(tarea);
-                nuevaTareaInformacionEstado.ForeColor = System.Drawing.Color.Green;
-                nuevaTareaInformacionEstado.Text = "Tarea agregada correctamente.";
+
+                lbl_nuevaTareaInformacionEstado.ForeColor = System.Drawing.Color.Green;
+                lbl_nuevaTareaInformacionEstado.Text = "Tarea agregada correctamente.";
             }
             else
             {
@@ -43,9 +44,12 @@ namespace CAPTasks.Presentacion
                 //nuevaTareaFecha.SelectedDate = ' ';
                 //nuevaTareaPrioridad.Text = ' ';
                 //nuevaTareaEstado.Text = ' ';
-                nuevaTareaInformacionEstado.ForeColor = System.Drawing.Color.Red;
-                nuevaTareaInformacionEstado.Text = "Error creando la tarea, vuelva a intentarlo";
+                lbl_nuevaTareaInformacionEstado.ForeColor = System.Drawing.Color.Red;
+                lbl_nuevaTareaInformacionEstado.Text = "Error creando la tarea, vuelva a intentarlo";
             }
         }
+
+
+
     }
 }

@@ -13,13 +13,13 @@ namespace CAPTasks.Presentacion {
     public partial class Home1 {
         
         /// <summary>
-        /// nuevaTareaInformacionEstado control.
+        /// lbl_nuevaTareaInformacionEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nuevaTareaInformacionEstado;
+        protected global::System.Web.UI.WebControls.Label lbl_nuevaTareaInformacionEstado;
         
         /// <summary>
         /// nuevaTareaNombre control.
@@ -49,13 +49,13 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Calendar nuevaTareaFecha;
         
         /// <summary>
-        /// nuevaTareaPrioridad control.
+        /// ddl_nueva_tarea_prioridad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nuevaTareaPrioridad;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_nueva_tarea_prioridad;
         
         /// <summary>
         /// nuevaTareaIdCarpeta control.
@@ -84,40 +84,40 @@ namespace CAPTasks.Presentacion {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCerrarModalTarea;
         
-        ///// <summary>
-        ///// btnGuardarTarea control.
-        ///// </summary>
-        ///// <remarks>
-        ///// Auto-generated field.
-        ///// To modify move field declaration from designer file to code-behind file.
-        ///// </remarks>
-        //protected global::System.Web.UI.WebControls.Button btnGuardarTarea;
-        
         /// <summary>
-        /// Label1 control.
+        /// btnGuardarTarea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btnGuardarTarea;
         
         /// <summary>
-        /// TextBox2 control.
+        /// lblDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.Label lblDescripcion;
         
         /// <summary>
-        /// btn_guardar_carpeta control.
+        /// txtCarpetaDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_guardar_carpeta;
+        protected global::System.Web.UI.WebControls.TextBox txtCarpetaDescripcion;
+        
+        /// <summary>
+        /// btnGuardarCarpeta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarCarpeta;
     }
 }
