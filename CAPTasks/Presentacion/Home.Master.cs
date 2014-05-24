@@ -11,18 +11,18 @@ namespace CAPTasks.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {  
-            //DESCOMENTAR PARA PROBAR LA SESSION:
+            //PROBAR LA SESSION:
 
-            //if (Session["Logueado"] == null)
-            //{
+            if (Session["Nombre"] == null)
+            {
 
-            //    Response.Redirect("Login.aspx");
-            //}
-            //else
-            //{
-            //    string usuarioLogueado = Session["Logueado"].ToString();
-            //    lblUsuario.Text = usuarioLogueado;
-            //}
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                string usuarioLogueado = Session["Nombre"].ToString();
+                lblUsuario.Text = usuarioLogueado;
+            }
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)

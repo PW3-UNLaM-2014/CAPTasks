@@ -22,15 +22,6 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// Control lblContrasenia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContrasenia;
-        
-        /// <summary>
         /// Control txtEmail.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace CAPTasks.Presentacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
+        /// Control lblContrasenia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContrasenia;
         
         /// <summary>
         /// Control txtContrasenia.
@@ -94,13 +94,13 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.CheckBox ckbRecordarme;
         
         /// <summary>
-        /// Control btnIngresar.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIngresar;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Control lblMensaje1.

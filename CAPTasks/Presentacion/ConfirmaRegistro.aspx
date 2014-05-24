@@ -13,16 +13,18 @@
     <!-- Core Scripts - Include with every page -->
     <script language="javascript" type="text/javascript" src="js/jquery-1.10.2.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script language="javascript" type="text/javascript" src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+   <%-- <script language="javascript" type="text/javascript" src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <!-- SB Admin Scripts - Include with every page -->
-    <script language="javascript" type="text/javascript" src="js/sb-admin.js"></script>
+    <script language="javascript" type="text/javascript" src="js/sb-admin.js"></script>--%>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="registro">
+       <div id="divRegistro" runat="server">
+
+       </div>
         <blockquote>
-            <h3>
-                <span class="glyphicon glyphicon-ok"></span>Usuario activado correctamente!!!<small><a
+            <h3><small><a
                     href="Login.aspx">CAPTasks</a></small></h3>
         </blockquote>
     </div>

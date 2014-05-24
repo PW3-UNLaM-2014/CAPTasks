@@ -13,22 +13,85 @@ namespace CAPTasks.Presentacion {
     public partial class Home1 {
         
         /// <summary>
-        /// Button1 control.
+        /// nuevaTareaInformacionEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label nuevaTareaInformacionEstado;
         
         /// <summary>
-        /// Button2 control.
+        /// nuevaTareaNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.TextBox nuevaTareaNombre;
+        
+        /// <summary>
+        /// nuevaTareaDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nuevaTareaDescripcion;
+        
+        /// <summary>
+        /// nuevaTareaFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar nuevaTareaFecha;
+        
+        /// <summary>
+        /// nuevaTareaPrioridad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nuevaTareaPrioridad;
+        
+        /// <summary>
+        /// nuevaTareaIdCarpeta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nuevaTareaIdCarpeta;
+        
+        /// <summary>
+        /// nuevaTareaEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox nuevaTareaEstado;
+        
+        /// <summary>
+        /// btnCerrarModalTarea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrarModalTarea;
+        
+        ///// <summary>
+        ///// btnGuardarTarea control.
+        ///// </summary>
+        ///// <remarks>
+        ///// Auto-generated field.
+        ///// To modify move field declaration from designer file to code-behind file.
+        ///// </remarks>
+        //protected global::System.Web.UI.WebControls.Button btnGuardarTarea;
         
         /// <summary>
         /// Label1 control.
@@ -38,6 +101,15 @@ namespace CAPTasks.Presentacion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// TextBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
         /// btn_guardar_carpeta control.
