@@ -30,7 +30,7 @@ namespace Datos
         public String cadenaDeConexion()
         {
             SqlConnectionStringBuilder miConexion = new SqlConnectionStringBuilder();
-            miConexion.DataSource = "CECILIA\\SQLEXPRESS"; // PONER EL NOMBRE DEL SERVIDOR PROPIO
+            miConexion.DataSource = "PAULITTA-PC\\SQLEXPRESS"; // PONER EL NOMBRE DEL SERVIDOR PROPIO
             miConexion.InitialCatalog = "CAPTasks";
             miConexion.IntegratedSecurity = true;
             return miConexion.ConnectionString;
