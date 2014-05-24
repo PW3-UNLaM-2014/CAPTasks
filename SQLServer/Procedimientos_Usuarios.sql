@@ -1,6 +1,12 @@
 USE [CAPTasks]
 GO
 -----------------------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_CrearUsuario')
+BEGIN
+DROP PROCEDURE [dbo].[p_CrearUsuario]
+END
+GO
+
 CREATE PROCEDURE [dbo].[p_CrearUsuario]
 @NOMBRE nvarchar(20),
 @APELLIDO nvarchar(20),
@@ -25,6 +31,12 @@ END
 END
 GO
 ------------------------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_Login')
+BEGIN
+DROP PROCEDURE [dbo].[p_Login]
+END
+GO
+
 CREATE PROCEDURE [dbo].[p_Login]
 @EMAIL nvarchar (20)
 AS
@@ -33,6 +45,12 @@ BEGIN
  END
 GO
 ------------------------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_ConfirmaRegistro')
+BEGIN
+DROP PROCEDURE [dbo].[p_ConfirmaRegistro]
+END
+GO
+
 CREATE PROCEDURE [dbo].[p_ConfirmaRegistro]
 @CODIGOACTIVACION nvarchar(30)
 AS
@@ -51,6 +69,12 @@ END
 END
 GO
 --------------------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_VerificarEmail')
+BEGIN
+DROP PROCEDURE [dbo].[p_VerificarEmail]
+END
+GO
+
 CREATE PROCEDURE [dbo].[p_VerificarEmail]
 @EMAIL nvarchar(20)
 AS
@@ -59,6 +83,12 @@ SELECT * FROM [dbo].[Usuarios] WHERE [Email]=@EMAIL AND [Estado]<>0
 END
 GO
 --------------------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_CrearCarpetaGeneral')
+BEGIN
+DROP PROCEDURE [dbo].[p_CrearCarpetaGeneral]
+END
+GO
+
 CREATE PROCEDURE [dbo].[p_CrearCarpetaGeneral]
 @ID int,
 @NOMBRE nvarchar(20),
