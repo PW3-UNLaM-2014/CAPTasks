@@ -24,6 +24,11 @@ namespace Negocio
             return td.ListaDeMisTareas(idUsuario);        
         }
 
+        public List<Tarea> ListarTodasMisTareas(int idUsuario)
+        {
+            return td.ListaDeTodasMisTareas(idUsuario);
+        }
+
 
     }
 }

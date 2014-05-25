@@ -40,7 +40,6 @@
                     <br />
                     <asp:Label Text="Estado" for="nuevaTareaEstado" runat="server" />
                     <asp:CheckBox Text="completada" class="disabled" runat="server" ID="nuevaTareaEstado" />
-
                 </div>
                 <div class="modal-footer">
                     <asp:Button ID="btnCerrarModalTarea" class="btn btn-default" data-dismiss="modal"
@@ -93,7 +92,9 @@
             <h2>
                 Lista de tareas
             </h2>
-            <asp:GridView ID="gvListaTareas" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvListaTareas" runat="server" AutoGenerateColumns="False" ForeColor="#333333"
+                GridLines="None" CellPadding="40">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="Fecha" DataFormatString="{0:d}" HeaderText="Fecha" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -101,13 +102,23 @@
                     <asp:BoundField DataField="Prioridad" HeaderText="Prioridad" />
                     <asp:BoundField DataField="IdCarpeta" HeaderText="Carpeta" />
                     <asp:BoundField DataField="Estado" HeaderText="Completada" />
-                    <asp:CommandField ButtonType="Button" EditText="Completar" HeaderText="Accion" 
-                        ShowEditButton="True" />
+                    <asp:CommandField ButtonType="Button" EditText="Completar" HeaderText="Accion" ShowEditButton="True" />
                 </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle"
+                    Height="100" Width="200" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Height="100" Width="200" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
             <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
-           <%-- <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" /> --%>
+            <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
             <!-- Button trigger modal -->
             <asp:Button Text="Nueva Tarea" class="btn btn-primary" data-toggle="modal" data-target="#nuevaTarea"
                 runat="server" />

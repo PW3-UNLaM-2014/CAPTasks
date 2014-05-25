@@ -23,7 +23,36 @@ namespace CAPTasks.Presentacion
 
             gvListaTareas.DataSource = misTareas;
             gvListaTareas.DataBind();
+        }
 
+        protected void btnTareasFinalizadas_Click(object sender, EventArgs e)
+        {
+            if (ckbTareasFinalizadas.Checked == true)
+            {
+                int idUsuario;
+                idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+
+                List<Tarea> todasMisTareas = new List<Tarea>();
+                TareaServicios ts = new TareaServicios();
+
+                todasMisTareas = ts.ListarTodasMisTareas(idUsuario);
+
+                gvListaTareas.DataSource = todasMisTareas;
+                gvListaTareas.DataBind();
+            }
+            else
+            {
+                int idUsuario;
+                idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+
+                List<Tarea> misTareas = new List<Tarea>();
+                TareaServicios ts = new TareaServicios();
+
+                misTareas = ts.ListarMisTareas(idUsuario);
+
+                gvListaTareas.DataSource = misTareas;
+                gvListaTareas.DataBind();
+            }
         }
 
         protected void btnGuardarTarea_Click(object sender, EventArgs e)
@@ -58,6 +87,5 @@ namespace CAPTasks.Presentacion
                 lbl_nuevaTareaInformacionEstado.Text = "Error creando la tarea, vuelva a intentarlo";
             }
         }
-
     }
 }
