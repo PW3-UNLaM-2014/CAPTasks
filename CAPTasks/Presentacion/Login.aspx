@@ -30,7 +30,7 @@
         </div>
         <div class="checkbox">
             <label>
-                <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" OnCheckedChanged="ckbRecordarme_CheckedChanged" />
+                <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server"/>
             </label>
         </div>
         <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"

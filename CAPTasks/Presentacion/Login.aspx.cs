@@ -20,14 +20,15 @@ namespace CAPTasks.Presentacion
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Cookies["Preferencias"] != null)
-            {
-                txtEmail.Text = Request.Cookies["Preferencias"]["Email"];
-                txtContrasenia.Attributes.Add("Value", Request.Cookies["Preferencias"]["Contrasenia"].ToString());
+            {              
                 //El cookie existe. Asumir que ya logueó:
                 Session["Email"] = Request.Cookies["Preferencias"]["Email"];
                 Session["Contrasenia"] = Request.Cookies["Preferencias"]["Contrasenia"];
-                //FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, ckbRecordarme.Checked); 
+                Session["IdUsuario"] = Request.Cookies["Preferencias"]["IdUsuario"];
                 Response.Redirect("~/Presentacion/Home.aspx");
+                //string nombre = Session["Email"].ToString();
+                //FormsAuthentication.RedirectFromLoginPage(nombre, ckbRecordarme.Checked);   
+                
             }
         }
         protected void btnRegistrarse_Click(object sender, EventArgs e)
@@ -114,6 +115,17 @@ namespace CAPTasks.Presentacion
                 Session["Nombre"] = miUsuario.Nombre;
                 Session["IdUsuario"] = miUsuario.IdUsuario;
                 Session["Email"] = miUsuario.Email;
+                if (ckbRecordarme.Checked == true && miUsuario.Estado == 1)
+                {
+                    HttpCookie cookie = Request.Cookies["Preferencias"];
+                    if (cookie == null)
+                        cookie = new HttpCookie("Preferencias");
+                    cookie.Values["Email"] = miUsuario.Email;
+                    cookie.Values["Contrasenia"] = miUsuario.Contrasenia;
+                    cookie.Values["IdUsuario"] = (miUsuario.IdUsuario).ToString();
+                    cookie.Expires = DateTime.Now.AddMinutes(10); //Caduca en 10 minutos.
+                    Response.Cookies.Add(cookie);
+                }
                 ejecutarAccion(miUsuario);
             }
 
@@ -146,25 +158,6 @@ namespace CAPTasks.Presentacion
                 ckbRecordarme.Checked = false;
                 lblMensaje1.ForeColor = System.Drawing.Color.Red;
                 lblMensaje1.Text = "Usuario inactivo";
-            }
-        }
-
-        protected void ckbRecordarme_CheckedChanged(object sender, EventArgs e)
-        {
-            //La cookie solo se deberia crear si el usuario esta registrado:
-            Usuario usuarioCookie;
-            usuarioCookie = us.TraerDatosUsuario(txtEmail.Text);
-            string contraseniaEncriptada = Encryptor.MD5Hash(txtContrasenia.Text);
-
-            if ((txtEmail.Text == usuarioCookie.Email) && (contraseniaEncriptada == usuarioCookie.Contrasenia) && (usuarioCookie.Estado==1))
-            {
-                HttpCookie cookie = Request.Cookies["Preferencias"];
-                if (cookie == null)
-                    cookie = new HttpCookie("Preferencias");
-                cookie.Values["Email"] = usuarioCookie.Email;
-                cookie.Values["Contrasenia"] = usuarioCookie.Contrasenia;
-                Response.Cookies.Add(cookie);
-                //cookie.Expires = DateTime.Now.AddDays(1); //Caduca en un dia 
             }
         }
     }
