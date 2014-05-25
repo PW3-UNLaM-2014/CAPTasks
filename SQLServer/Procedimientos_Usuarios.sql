@@ -1,6 +1,51 @@
 USE [CAPTasks]
 GO
+
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_CrearTarea')
+BEGIN
+DROP PROCEDURE [dbo].[p_CrearTarea]
+END
+GO
+
+CREATE PROCEDURE [dbo].[p_CrearTarea]
+@NOMBRE nvarchar(20),
+@ID_CARPETA int,
+@ID_USUARIO int,
+@DESCRIPCION nvarchar(200),
+@FECHA datetime,
+@PRIORIDAD smallint
+--@ESTADO smallint : Se inserta por defecto en 0=Pendiente luego pasa a 1=Completada
+AS
+BEGIN
+INSERT INTO [dbo].[Tareas]
+([Nombre],[IdCarpeta],[IdUsuario],[Descripcion],[FechaFin],[Prioridad],[Estado])
+VALUES
+(@NOMBRE,@ID_CARPETA,@ID_USUARIO,@DESCRIPCION,@FECHA,@PRIORIDAD,0)
+
+END
+GO
 -----------------------------------------------------------------------------------------
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_CrearCarpeta')
+BEGIN
+DROP PROCEDURE [dbo].[p_CrearCarpeta]
+END
+GO
+
+CREATE PROCEDURE [dbo].[p_CrearCarpeta]
+@NOMBRE nvarchar(20),
+@ID_USUARIO int,
+@DESCRIPCION nvarchar(200)
+AS
+BEGIN
+INSERT INTO [dbo].[Carpetas]
+([Nombre],[IdUsuario],[Descripcion])
+VALUES
+(@NOMBRE,@ID_USUARIO,@DESCRIPCION)
+
+END
+GO
+-----------------------------------------------------------------------------------------
+
 IF EXISTS (SELECT * FROM sysobjects WHERE name='p_CrearUsuario')
 BEGIN
 DROP PROCEDURE [dbo].[p_CrearUsuario]

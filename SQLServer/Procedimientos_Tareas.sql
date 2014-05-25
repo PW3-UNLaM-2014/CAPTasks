@@ -1,3 +1,6 @@
+USE [CAPTasks]
+GO
+
 IF EXISTS (SELECT * FROM sysobjects WHERE name='p_ListarTareas')
 BEGIN
 DROP PROCEDURE [dbo].[p_ListarTareas]

@@ -13,13 +13,13 @@ namespace CAPTasks.Presentacion {
     public partial class Home1 {
         
         /// <summary>
-        /// Control nuevaTareaInformacionEstado.
+        /// Control lbl_nuevaTareaInformacionEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nuevaTareaInformacionEstado;
+        protected global::System.Web.UI.WebControls.Label lbl_nuevaTareaInformacionEstado;
         
         /// <summary>
         /// Control nuevaTareaNombre.
@@ -49,13 +49,13 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Calendar nuevaTareaFecha;
         
         /// <summary>
-        /// Control nuevaTareaPrioridad.
+        /// Control ddl_nueva_tarea_prioridad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nuevaTareaPrioridad;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_nueva_tarea_prioridad;
         
         /// <summary>
         /// Control nuevaTareaIdCarpeta.
@@ -94,31 +94,31 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnGuardarTarea;
         
         /// <summary>
-        /// Control Label1.
+        /// Control lblDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblDescripcion;
         
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtCarpetaDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtCarpetaDescripcion;
         
         /// <summary>
-        /// Control btn_guardar_carpeta.
+        /// Control btnGuardarCarpeta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_guardar_carpeta;
+        protected global::System.Web.UI.WebControls.Button btnGuardarCarpeta;
         
         /// <summary>
         /// Control gvListaTareas.
