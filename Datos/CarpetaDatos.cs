@@ -17,23 +17,23 @@ namespace Datos
 
 
         //Creacion de carpeta:
-        public void CrearNuevaCarpeta(Carpeta carpeta)
-        {
-            if (miConexion.conectar())
-            {
-                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", tarea.Nombre);
-                SqlParameter parametroIdUsuario = new SqlParameter("@ID_USUARIO", tarea.IdUsuario);
-                SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", tarea.Descripcion);
+        //public void CrearNuevaCarpeta(Carpeta carpeta)
+        //{
+        //    if (miConexion.conectar())
+        //    {
+        //        SqlParameter parametroNombre = new SqlParameter("@NOMBRE", tarea.Nombre);
+        //        SqlParameter parametroIdUsuario = new SqlParameter("@ID_USUARIO", tarea.IdUsuario);
+        //        SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", tarea.Descripcion);
 
-                SqlCommand miComando = new SqlCommand("p_CrearCarpeta", miConexion.Sqlconn);
-                miComando.CommandType = CommandType.StoredProcedure;
-                miComando.Parameters.Add(parametroNombre);
-                miComando.Parameters.Add(parametroIdUsuario);
-                miComando.Parameters.Add(parametroDescripcion);
-                miComando.ExecuteNonQuery();
-            }
-            miConexion.Sqlconn.Close();
-        }
+        //        SqlCommand miComando = new SqlCommand("p_CrearCarpeta", miConexion.Sqlconn);
+        //        miComando.CommandType = CommandType.StoredProcedure;
+        //        miComando.Parameters.Add(parametroNombre);
+        //        miComando.Parameters.Add(parametroIdUsuario);
+        //        miComando.Parameters.Add(parametroDescripcion);
+        //        miComando.ExecuteNonQuery();
+        //    }
+        //    miConexion.Sqlconn.Close();
+        //}
 
 
 
