@@ -93,7 +93,17 @@
             <h2>
                 Lista de tareas
             </h2>
-            <asp:GridView ID="gvListaTareas" runat="server">
+            <asp:GridView ID="gvListaTareas" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="Fecha" DataFormatString="{0:d}" HeaderText="Fecha" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                    <asp:BoundField DataField="Prioridad" HeaderText="Prioridad" />
+                    <asp:BoundField DataField="IdCarpeta" HeaderText="Carpeta" />
+                    <asp:BoundField DataField="Estado" HeaderText="Completada" />
+                    <asp:CommandField ButtonType="Button" EditText="Completar" HeaderText="Accion" 
+                        ShowEditButton="True" />
+                </Columns>
             </asp:GridView>
             <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>

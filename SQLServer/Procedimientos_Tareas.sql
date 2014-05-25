@@ -14,5 +14,7 @@ BEGIN
 	
 	SELECT * FROM [dbo].[Tareas]
 	WHERE [IdUsuario] = @USUARIOID
+	AND [Estado] = 1
+	ORDER BY [FechaFin] DESC
 END
 GO
