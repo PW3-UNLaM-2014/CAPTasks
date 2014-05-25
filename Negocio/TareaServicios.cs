@@ -19,6 +19,11 @@ namespace Negocio
             td.CrearNuevaTarea(tarea);
         }
 
+        public List<Tarea> ListarMisTareas(int idUsuario)
+        {
+            return td.ListaDeMisTareas(idUsuario);        
+        }
+
 
     }
 }

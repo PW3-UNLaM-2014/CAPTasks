@@ -13,10 +13,20 @@ namespace CAPTasks.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int idUsuario;
+            idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+
+            List<Tarea> misTareas = new List<Tarea>();
+            TareaServicios ts = new TareaServicios();
+
+            misTareas = ts.ListarMisTareas(idUsuario);
+
+            gvListaTareas.DataSource = misTareas;
+            gvListaTareas.DataBind();
 
         }
 
-        protected void btnGuardarTarea(object sender, EventArgs e)
+        protected void btnGuardarTarea_Click(object sender, EventArgs e)
         {
             Tarea tarea = new Tarea();
             TareaServicios tareaService = new TareaServicios();

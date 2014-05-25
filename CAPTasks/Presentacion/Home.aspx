@@ -9,8 +9,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            
-                    <form action="home.aspx" method="post">
+                <form action="home.aspx" method="post">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         &times;</button>
@@ -18,7 +17,6 @@
                         Guardar tarea</h4>
                 </div>
                 <div class="modal-body">
-                    
                     <asp:Label Text="" ID="nuevaTareaInformacionEstado" runat="server" />
                     <br />
                     <asp:Label Text="Nombre" runat="server" for="nuevaTareaNombre" />
@@ -37,17 +35,14 @@
                     <asp:TextBox runat="server" ID="nuevaTareaIdCarpeta" />
                     <br />
                     <asp:Label Text="Estado" for="nuevaTareaEstado" runat="server" />
-                    <asp:CheckBox Text="completada" runat="server"  ID="nuevaTareaEstado" />
-                   
+                    <asp:CheckBox Text="completada" runat="server" ID="nuevaTareaEstado" />
                 </div>
                 <div class="modal-footer">
-                
-                    <asp:Button ID="btnCerrarModalTarea" class="btn btn-default" data-dismiss="modal" Text="Volver" runat="server" />
-                    
-                    <asp:Button ID="btnGuardarTarea" Text="Guardar Tarea" runat="server"  class="btn btn-primary" />
-                    
+                    <asp:Button ID="btnCerrarModalTarea" class="btn btn-default" data-dismiss="modal"
+                        Text="Volver" runat="server" />
+                    <asp:Button ID="btnGuardarTarea" Text="Guardar Tarea" runat="server" class="btn btn-primary" />
                 </div>
-                 </form>
+                </form>
             </div>
         </div>
     </div>
@@ -96,7 +91,11 @@
             <h2>
                 Lista de tareas
             </h2>
-            <asp:GridView runat="server" />
+            <asp:GridView ID="gvListaTareas" runat="server">
+            </asp:GridView>
+            <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
+            <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
+           <%-- <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" /> --%>
             <!-- Button trigger modal -->
             <button class="btn btn-primary" data-toggle="modal" data-target="#nuevaTarea">
                 Nueva Tarea
