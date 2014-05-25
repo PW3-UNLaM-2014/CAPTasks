@@ -25,10 +25,7 @@ namespace CAPTasks.Presentacion
                 Session["Email"] = Request.Cookies["Preferencias"]["Email"];
                 Session["Contrasenia"] = Request.Cookies["Preferencias"]["Contrasenia"];
                 Session["IdUsuario"] = Request.Cookies["Preferencias"]["IdUsuario"];
-                Response.Redirect("~/Presentacion/Home.aspx");
-                //string nombre = Session["Email"].ToString();
-                //FormsAuthentication.RedirectFromLoginPage(nombre, ckbRecordarme.Checked);   
-                
+                Response.Redirect("~/Presentacion/Home.aspx"); 
             }
         }
         protected void btnRegistrarse_Click(object sender, EventArgs e)
@@ -112,9 +109,9 @@ namespace CAPTasks.Presentacion
             miUsuario = us.TraerDatosUsuario(emailIngresado);
             if ((miUsuario != null) && (contraseniaIngresada == miUsuario.Contrasenia))
             {
-                Session["Nombre"] = miUsuario.Nombre;
-                Session["IdUsuario"] = miUsuario.IdUsuario;
-                Session["Email"] = miUsuario.Email;
+                //Session["Nombre"] = miUsuario.Nombre;
+                //Session["IdUsuario"] = miUsuario.IdUsuario;
+                //Session["Email"] = miUsuario.Email;
                 if (ckbRecordarme.Checked == true && miUsuario.Estado == 1)
                 {
                     HttpCookie cookie = Request.Cookies["Preferencias"];
@@ -144,6 +141,9 @@ namespace CAPTasks.Presentacion
 
             if (miUsuario.Estado == 1)
             {
+                Session["Nombre"] = miUsuario.Nombre;
+                Session["IdUsuario"] = miUsuario.IdUsuario;
+                Session["Email"] = miUsuario.Email;
                 int id = Convert.ToInt32(Session["IdUsuario"]);
                 string nombre = "General";
                 string descripcion = "Carpeta creada por defecto para las tareas a las que no se les asigna carpeta";

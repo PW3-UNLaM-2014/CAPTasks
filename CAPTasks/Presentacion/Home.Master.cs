@@ -11,8 +11,6 @@ namespace CAPTasks.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {  
-            //PROBAR LA SESSION:
-
             if (Session["Email"] == null)
             {
 
