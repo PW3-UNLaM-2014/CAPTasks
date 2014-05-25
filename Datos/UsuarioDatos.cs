@@ -13,8 +13,6 @@ namespace Datos
     public class UsuarioDatos
     {
         ConexionBD miConexion = new ConexionBD();
-        Usuario miUsuario = new Usuario();
-
 
         //REGISTRACION DE USUARIOS:
         public void CrearNuevoUsuario(Usuario usuario)
@@ -62,8 +60,7 @@ namespace Datos
             return false;
 
         }
-               
-  
+
         //VERIFICAR SI YA EXISTE UN USUARIO REGISTRADO ACTIVO CON ESE MAIL EN LA LISTA DE USUARIOS:
         public List<Usuario> VerificarEmail(string email)
         {
@@ -88,10 +85,10 @@ namespace Datos
             }
             else return null;
         }
+
         // METODO PARA PODER LOGUEARSE:
         public Usuario TraerDatosUsuario(string mail)
         {
-
             Usuario miUsuario = new Usuario();
             if (miConexion.conectar())
             {
@@ -121,6 +118,7 @@ namespace Datos
             }
 
         }
+
         //CREACION DE CARPETA GENERAL:
         public void CrearCarpetaGeneral(int id, string nombre, string descripcion)
         {

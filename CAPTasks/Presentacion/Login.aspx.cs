@@ -9,14 +9,13 @@ using System.Net.Mail;
 using Negocio;
 using Entidades;
 using System.Net;
-using System.Web.Security;
+
 
 namespace CAPTasks.Presentacion
 {
     public partial class Login1 : System.Web.UI.Page
     {
         UsuarioServicios us = new UsuarioServicios();
-        Usuario usuario = new Usuario();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,20 +23,21 @@ namespace CAPTasks.Presentacion
             {
                 txtEmail.Text = Request.Cookies["Preferencias"]["Email"];
                 txtContrasenia.Attributes.Add("Value", Request.Cookies["Preferencias"]["Contrasenia"].ToString());
-
+                //El cookie existe. Asumir que ya logueó:
+                Session["Email"] = Request.Cookies["Preferencias"]["Email"];
+                Session["Contrasenia"] = Request.Cookies["Preferencias"]["Contrasenia"];
+                //FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, ckbRecordarme.Checked); 
+                Response.Redirect("~/Presentacion/Home.aspx");
             }
         }
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
+            Usuario usuario = new Usuario();
             string email = Convert.ToString(txtEmailR.Text);
             int usuarioMismoMail = (us.VerificarEmail(email).Count); //cantidad de usuarios con ese mail y que estan activos
             if (usuarioMismoMail >= 1) //si hay por lo menos uno, ya no se se puede registrar con otro usuario con ese mismo mail
             {
-                txtNombre.Text = "";
-                txtApellido.Text = "";
-                txtEmailR.Text = "";
-                txtContraseniaR.Text = "";
-                txtContraseniaR2.Text = "";
+                ClearControls();
                 lblMensaje2.ForeColor = System.Drawing.Color.Red;
                 lblMensaje2.Text = "Email existente";
             }
@@ -45,38 +45,56 @@ namespace CAPTasks.Presentacion
             {
                 if (Page.IsValid)
                 {
-                    usuario.CodigoActivacion = Encryptor.MD5Hash(txtEmailR.Text); //Encripto el email
-                    usuario.Nombre = txtNombre.Text;
-                    usuario.Apellido = txtApellido.Text;
-                    usuario.Email = txtEmailR.Text;
-                    usuario.Contrasenia = Encryptor.MD5Hash(txtContraseniaR.Text); //Encripto contrasenia
-                    us.CrearNuevoUsuario(usuario);
-                    lblMensaje2.ForeColor = System.Drawing.Color.Green;
-                    lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para confirmar su registración";
+                    try
+                    {
+                        usuario.CodigoActivacion = Encryptor.MD5Hash(txtEmailR.Text); 
+                        usuario.Nombre = txtNombre.Text;
+                        usuario.Apellido = txtApellido.Text;
+                        usuario.Email = txtEmailR.Text;
+                        usuario.Contrasenia = Encryptor.MD5Hash(txtContraseniaR.Text); 
+                        us.CrearNuevoUsuario(usuario);
+                        ClearControls();
+                        lblMensaje2.ForeColor = System.Drawing.Color.Green;
+                        lblMensaje2.Text = "Datos ingresados correctamente, revise su correo para confirmar su registración";
 
-                    //ENVIO DE MAIL:
-                    System.Net.Mail.MailMessage msj = new System.Net.Mail.MailMessage();
-                    msj.To.Add(new MailAddress(txtEmailR.Text));
-                    msj.From = new MailAddress("nuestra.aplicacion2014@gmail.com");
-                    msj.Subject = "Activación de cuenta";
-                    msj.SubjectEncoding = System.Text.Encoding.UTF8;
-                    string body = "Hola " + txtNombre.Text.Trim() + ",";
-                    body += "<br/><br/>Por favor, haga click en el siguiente link para activar su cuenta:<br/>";
-                    body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("/Presentacion/Login.aspx", "/Presentacion/ConfirmaRegistro.aspx?ActivationCode=" + usuario.CodigoActivacion) + "'>Haga click aqui para activar su cuenta</a>";
-                    body += "<br /><br />Muchas gracias, CAPTasks!";
-                    msj.Body = body;
-                    msj.IsBodyHtml = true;
+                        //ENVIO DE MAIL:
+                        System.Net.Mail.MailMessage msj = new System.Net.Mail.MailMessage();
+                        msj.To.Add(new MailAddress(usuario.Email));
+                        msj.From = new MailAddress("nuestra.aplicacion2014@gmail.com");
+                        msj.Subject = "Activación de cuenta";
+                        msj.SubjectEncoding = System.Text.Encoding.UTF8;
+                        string body = "Hola " + usuario.Nombre.Trim() + ",";
+                        body += "<br/><br/>Por favor, haga click en el siguiente link para activar su cuenta:<br/>";
+                        body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("/Presentacion/Login.aspx", "/Presentacion/ConfirmaRegistro.aspx?ActivationCode=" + usuario.CodigoActivacion) + "'>Haga click aqui para activar su cuenta</a>";
+                        body += "<br /><br />Muchas gracias, CAPTasks!";
+                        msj.Body = body;
+                        msj.IsBodyHtml = true;
 
-                    SmtpClient client = new SmtpClient();
-                    client.Host = "smtp.gmail.com";
-                    client.EnableSsl = true;
-                    NetworkCredential netcred = new NetworkCredential("nuestra.aplicacion2014", "napp2014");
-                    client.UseDefaultCredentials = true;
-                    client.Credentials = netcred;
-                    client.Port = 587;
-                    client.Send(msj);
+                        SmtpClient client = new SmtpClient();
+                        client.Host = "smtp.gmail.com";
+                        client.EnableSsl = true;
+                        NetworkCredential netcred = new NetworkCredential("nuestra.aplicacion2014", "napp2014");
+                        client.UseDefaultCredentials = true;
+                        client.Credentials = netcred;
+                        client.Port = 587;
+                        client.Send(msj);
+                    }
+                    catch (System.Net.Mail.SmtpException ex)
+                    {
+                        lblMensaje3.ForeColor = System.Drawing.Color.Red;
+                        lblMensaje3.Text = "Error al enviar el mail de confirmación, intentelo mas tarde:" + ex.Message;
+                    }
                 }
             }
+        }
+
+        private void ClearControls()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtEmailR.Text = "";
+            txtContraseniaR.Text = "";
+            txtContraseniaR2.Text = "";
         }
 
         protected void RecaptchaValidator_ServerValidate(object source, ServerValidateEventArgs args)
@@ -87,7 +105,7 @@ namespace CAPTasks.Presentacion
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            string contraseniaIngresada = Encryptor.MD5Hash(txtContrasenia.Text); //Encripto contrasenia
+            string contraseniaIngresada = Encryptor.MD5Hash(txtContrasenia.Text); 
             string emailIngresado = txtEmail.Text;
             Usuario miUsuario;
             miUsuario = us.TraerDatosUsuario(emailIngresado);
@@ -103,6 +121,7 @@ namespace CAPTasks.Presentacion
             {
                 txtEmail.Text = "";
                 txtContrasenia.Text = "";
+                ckbRecordarme.Checked = false;
                 lblMensaje1.ForeColor = System.Drawing.Color.Red;
                 lblMensaje1.Text = "Verifique usuario y/o contraseña";
             }
@@ -117,27 +136,36 @@ namespace CAPTasks.Presentacion
                 string nombre = "General";
                 string descripcion = "Carpeta creada por defecto para las tareas a las que no se les asigna carpeta";
                 us.CrearCarpetaGeneral(id, nombre, descripcion);
-                Response.Redirect("Home.aspx");
+                Response.Redirect("~/Presentacion/Home.aspx");
             }
 
-            if (usuario.Estado == 0)
+            if (miUsuario.Estado == 0)
             {
                 txtEmail.Text = "";
                 txtContrasenia.Text = "";
+                ckbRecordarme.Checked = false;
                 lblMensaje1.ForeColor = System.Drawing.Color.Red;
-                lblMensaje1.Text = "Usuario inexistente";
+                lblMensaje1.Text = "Usuario inactivo";
             }
         }
 
         protected void ckbRecordarme_CheckedChanged(object sender, EventArgs e)
         {
-            HttpCookie cookie = Request.Cookies["Preferencias"];
-            if (cookie == null)
-                cookie = new HttpCookie("Preferencias");
-            cookie.Values["Email"] = txtEmail.Text;
-            cookie.Values["Contrasenia"] = Encryptor.MD5Hash(txtContrasenia.Text);
-            cookie.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Add(cookie);
+            //La cookie solo se deberia crear si el usuario esta registrado:
+            Usuario usuarioCookie;
+            usuarioCookie = us.TraerDatosUsuario(txtEmail.Text);
+            string contraseniaEncriptada = Encryptor.MD5Hash(txtContrasenia.Text);
+
+            if ((txtEmail.Text == usuarioCookie.Email) && (contraseniaEncriptada == usuarioCookie.Contrasenia) && (usuarioCookie.Estado==1))
+            {
+                HttpCookie cookie = Request.Cookies["Preferencias"];
+                if (cookie == null)
+                    cookie = new HttpCookie("Preferencias");
+                cookie.Values["Email"] = usuarioCookie.Email;
+                cookie.Values["Contrasenia"] = usuarioCookie.Contrasenia;
+                Response.Cookies.Add(cookie);
+                //cookie.Expires = DateTime.Now.AddDays(1); //Caduca en un dia 
+            }
         }
     }
 }

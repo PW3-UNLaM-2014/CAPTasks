@@ -33,10 +33,11 @@
                 <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" OnCheckedChanged="ckbRecordarme_CheckedChanged" />
             </label>
         </div>
-        <asp:Button ID="Button1" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"
+        <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"
             class="btn btn-primary" OnClick="btnIngresar_Click" />
+            <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
     </div>
-    <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentRegistracion" runat="server">
     <%--REGISTRACION--%>
@@ -107,6 +108,7 @@
                 class="btn btn-success btn-lg" OnClick="btnRegistrarse_Click" />
             <br />
             <asp:Label ID="lblMensaje2" runat="server" Text=""></asp:Label>
+            <asp:Label ID="lblMensaje3" runat="server" Text=""></asp:Label>
         </div>
     </div>
 </asp:Content>

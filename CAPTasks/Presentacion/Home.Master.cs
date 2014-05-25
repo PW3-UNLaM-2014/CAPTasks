@@ -13,23 +13,24 @@ namespace CAPTasks.Presentacion
         {  
             //PROBAR LA SESSION:
 
-            if (Session["Nombre"] == null)
+            if (Session["Email"] == null)
             {
 
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/Presentacion/Login.aspx");
             }
             else
             {
-                string usuarioLogueado = Session["Nombre"].ToString();
+                string usuarioLogueado = Session["Email"].ToString();
                 lblUsuario.Text = usuarioLogueado;
             }
         }
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
+            //Request.Cookies.Remove("Preferencias");
             Session.Abandon();
             Session.Clear();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Presentacion/Login.aspx");
         }      
     }
 }
