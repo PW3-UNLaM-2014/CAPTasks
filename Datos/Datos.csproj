@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarpetaDatos.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="TareaDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

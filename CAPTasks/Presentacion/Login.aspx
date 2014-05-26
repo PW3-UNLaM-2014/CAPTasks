@@ -9,7 +9,8 @@
     <div class="col-md-6">
         <div class="form-group">
             <asp:Label ID="lblEmail" class="sr-only" runat="server" Text="Email:"></asp:Label>
-            <asp:TextBox ID="txtEmail" class="form-control input-sm" MaxLength=20 runat="server" placeholder="Ingrese email"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" class="form-control input-sm" MaxLength="20" runat="server"
+                placeholder="Ingrese email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtEmail"
                 ValidationGroup="ingresar" Display="Dynamic" runat="server" ForeColor="Red" Text="*"
                 ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
@@ -30,14 +31,13 @@
         </div>
         <div class="checkbox">
             <label>
-                <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server"/>
+                <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" />
             </label>
         </div>
         <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"
             class="btn btn-primary" OnClick="btnIngresar_Click" />
-            <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
     </div>
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentRegistracion" runat="server">
     <%--REGISTRACION--%>
@@ -67,8 +67,8 @@
             <br />
             <asp:Label ID="lblEmailR" runat="server" Text="Email:"></asp:Label>
             <br />
-           <%-- Condicion que el mail no tenga mas de 20 caracteres!!--%>
-            <asp:TextBox ID="txtEmailR" class="form-control" MaxLength=20  runat="server" TextMode="Email"></asp:TextBox>
+            <%-- Condicion que el mail no tenga mas de 20 caracteres!!--%>
+            <asp:TextBox ID="txtEmailR" class="form-control" MaxLength="20" runat="server" TextMode="Email"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtEmailR"
                 ValidationGroup="registracion" Display="Dynamic" ForeColor="Red" runat="server"
                 ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
