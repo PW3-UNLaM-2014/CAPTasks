@@ -22,7 +22,7 @@ namespace Datos
             if (miConexion.conectar())
             {
                 SqlParameter parametroIdUsuario = new SqlParameter("@ID_USUARIO", id);
-                SqlParameter parametroNombre = new SqlParameter("@NOMBRE",nombre);               
+                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", nombre);
                 SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", descripcion);
 
                 SqlCommand miComando = new SqlCommand("p_CrearCarpeta", miConexion.Sqlconn);
@@ -41,8 +41,8 @@ namespace Datos
             if (miConexion.conectar())
             {
                 DataSet ds = new DataSet();
-                
-                string consulta = "SELECT * FROM Carpetas where IdUsuario=" + idUsuario+"; ";
+
+                string consulta = "SELECT * FROM Carpetas where IdUsuario=" + idUsuario + "; ";
                 SqlDataAdapter data = new SqlDataAdapter(consulta, miConexion.Sqlconn);
                 data.Fill(ds);
 

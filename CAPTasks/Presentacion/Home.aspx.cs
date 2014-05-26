@@ -13,6 +13,7 @@ namespace CAPTasks.Presentacion
     public partial class Home1 : System.Web.UI.Page
     {
         CarpetaServicios cs = new CarpetaServicios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -44,8 +45,6 @@ namespace CAPTasks.Presentacion
             idUsuario = Convert.ToInt32(Session["IdUsuario"]);
             gvCargarCarpetas(idUsuario);
         }
-
- 
 
         protected void btnTareasFinalizadas_Click(object sender, EventArgs e)
         {
@@ -79,7 +78,6 @@ namespace CAPTasks.Presentacion
             ts.CompletoLaTarea(idTarea);
             CargaTabla();
         }
-
 
         //PARA CARPETAS:
         private void gvCargarCarpetas(int idBuscar)
