@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
+using System.Data;
 
 namespace CAPTasks.Presentacion
 {
@@ -13,16 +14,26 @@ namespace CAPTasks.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                CargaTabla();
+            }
+        }
+
+        public void CargaTabla()
+        {
+
             int idUsuario;
             idUsuario = Convert.ToInt32(Session["IdUsuario"]);
 
-            List<Tarea> misTareas = new List<Tarea>();
-            TareaServicios ts = new TareaServicios();
+            List<LecturaTarea> misTareas = new List<LecturaTarea>();
+            LecturaTareaServicios lts = new LecturaTareaServicios();
 
-            misTareas = ts.ListarMisTareas(idUsuario);
+            misTareas = lts.ListarMisTareas(idUsuario);
 
             gvListaTareas.DataSource = misTareas;
             gvListaTareas.DataBind();
+        
         }
 
         protected void btnTareasFinalizadas_Click(object sender, EventArgs e)
@@ -32,27 +43,30 @@ namespace CAPTasks.Presentacion
                 int idUsuario;
                 idUsuario = Convert.ToInt32(Session["IdUsuario"]);
 
-                List<Tarea> todasMisTareas = new List<Tarea>();
-                TareaServicios ts = new TareaServicios();
+                List<LecturaTarea> todasMisTareas = new List<LecturaTarea>();
+                LecturaTareaServicios lts = new LecturaTareaServicios();
 
-                todasMisTareas = ts.ListarTodasMisTareas(idUsuario);
+                todasMisTareas = lts.ListarTodasMisTareas(idUsuario);
 
                 gvListaTareas.DataSource = todasMisTareas;
                 gvListaTareas.DataBind();
             }
             else
             {
-                int idUsuario;
-                idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-
-                List<Tarea> misTareas = new List<Tarea>();
-                TareaServicios ts = new TareaServicios();
-
-                misTareas = ts.ListarMisTareas(idUsuario);
-
-                gvListaTareas.DataSource = misTareas;
-                gvListaTareas.DataBind();
+                CargaTabla();
             }
+        }
+
+        protected void btnCompletar_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            int idTarea = int.Parse(gvListaTareas.DataKeys[row.RowIndex].Value.ToString());
+
+            TareaServicios ts = new TareaServicios();
+            ts.CompletoLaTarea(idTarea);
+            CargaTabla();
         }
 
         protected void btnGuardarTarea_Click(object sender, EventArgs e)
@@ -87,5 +101,6 @@ namespace CAPTasks.Presentacion
                 lbl_nuevaTareaInformacionEstado.Text = "Error creando la tarea, vuelva a intentarlo";
             }
         }
+
     }
 }

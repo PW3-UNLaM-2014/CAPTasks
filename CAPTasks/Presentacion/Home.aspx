@@ -93,16 +93,24 @@
                 Lista de tareas
             </h2>
             <asp:GridView ID="gvListaTareas" runat="server" AutoGenerateColumns="False" ForeColor="#333333"
-                GridLines="None" CellPadding="40">
+                GridLines="None" CellPadding="40" DataKeyNames="IdTarea">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField DataField="Fecha" DataFormatString="{0:d}" HeaderText="Fecha" />
-                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-                    <asp:BoundField DataField="Prioridad" HeaderText="Prioridad" />
-                    <asp:BoundField DataField="IdCarpeta" HeaderText="Carpeta" />
-                    <asp:BoundField DataField="Estado" HeaderText="Completada" />
-                    <asp:CommandField ButtonType="Button" EditText="Completar" HeaderText="Accion" ShowEditButton="True" />
+                    <asp:BoundField DataField="IdTarea" HeaderText="IdTarea" Visible="False" />
+                    <asp:BoundField DataField="Fecha" DataFormatString="{0:d}" HeaderText="Fecha" 
+                        ReadOnly="True" />
+                    <asp:BoundField DataField="Tarea" HeaderText="Nombre" ReadOnly="True" />
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" 
+                        ReadOnly="True" />
+                    <asp:BoundField DataField="Prioridad" HeaderText="Prioridad" ReadOnly="True" />
+                    <asp:BoundField DataField="Carpeta" HeaderText="Carpeta" ReadOnly="True" />
+                    <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                    <asp:TemplateField HeaderText="Accion" ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:Button ID="btnCompletar" runat="server" CausesValidation="false" 
+                                CommandName="Update" Text="Completar" OnClick="btnCompletar_Click" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -116,6 +124,8 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+
+
             <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
             <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
