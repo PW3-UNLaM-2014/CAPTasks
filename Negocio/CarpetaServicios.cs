@@ -15,10 +15,14 @@ namespace Negocio
         {
             //cd.CrearNuevaCarpeta(id,nombre,descripcion);
         }
+        public List<Carpeta> ListarCarpetas(int idUsuario)
+        {
+            return cd.ListarCarpetas(idUsuario);
+        }
 
-        //public List<Carpeta> ListarCarpetas(int idUsuario)
+        //public List<Tarea> ListarTareas(int idUsuario, int idCarpeta)
         //{
-        //    return cd.ListarCarpetas(idUsuario);
+        //    return cd.ListarTarea(idUsuario, idCarpeta);
         //}
     }
 }
