@@ -4,52 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- Modal para guardar tarea -->
-    <div class="modal fade" id="nuevaTarea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="home.aspx" method="post">
-                <div class="modal-header">
-                    <asp:Button Text="&times;" class="close" data-dismiss="modal" aria-hidden="true"
-                        runat="server" />
-                    <h4 class="modal-title" id="myModalLabel">
-                        Guardar tarea</h4>
-                </div>
-                <div class="modal-body">
-                    <asp:Label Text="" ID="lbl_nuevaTareaInformacionEstado" runat="server" />
-                    <br />
-                    <asp:Label Text="Nombre" runat="server" for="nuevaTareaNombre" />
-                    <asp:TextBox runat="server" ID="nuevaTareaNombre" value="Escriba aqui la tarea" />
-                    <br />
-                    <asp:Label Text="Descripcion" runat="server" for="nuevaTareaDescripcion" />
-                    <asp:TextBox runat="server" ID="nuevaTareaDescripcion" value="Escriba aqui la descripcion" />
-                    <br />
-                    <asp:Label Text="Fecha" runat="server" for="nuevaTareaFecha" />
-                    <asp:Calendar runat="server" ID="nuevaTareaFecha" />
-                    <br />
-                    <asp:Label Text="Prioridad" for="nuevaTareaPrioridad" runat="server" />
-                    <asp:TextBox runat="server" />
-                    <asp:DropDownList ID="ddl_nueva_tarea_prioridad" class="dropdown" runat="server">
-                        <asp:ListItem Text="text1" />
-                        <asp:ListItem Text="text2" />
-                    </asp:DropDownList>
-                    <br />
-                    <asp:Label Text="Carpeta" for="nuevaTareaIdCarpeta" runat="server" />
-                    <asp:TextBox runat="server" ID="nuevaTareaIdCarpeta" />
-                    <br />
-                    <asp:Label Text="Estado" for="nuevaTareaEstado" runat="server" />
-                    <asp:CheckBox Text="completada" class="disabled" runat="server" ID="nuevaTareaEstado" />
-                </div>
-                <div class="modal-footer">
-                    <asp:Button ID="btnCerrarModalTarea" class="btn btn-default" data-dismiss="modal"
-                        Text="Volver" runat="server" />
-                    <asp:Button ID="btnGuardarTarea" Text="Guardar Tarea" runat="server" class="btn btn-primary" />
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <!-- Modal -->
     <div class="modal fade" id="nuevaCarpeta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -81,12 +35,37 @@
             <h2>
                 Carpetas
             </h2>
-            <ul>
-                <li><a href="#">Default</a></li>
-            </ul>
-            <!-- Button trigger modal -->
-            <asp:Button Text="Nueva Carpeta" class="btn btn-primary" data-toggle="modal" data-target="#nuevaCarpeta"
-                runat="server" />
+            <asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
+                 CellPadding="4" ForeColor="#333333"
+                GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" Visible="false" />
+                    <asp:BoundField DataField="IdCarpeta" HeaderText="IdCarpeta" Visible="false" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Carpeta" />
+                    <asp:TemplateField HeaderText="Tareas">
+                        <HeaderTemplate>
+                            Tareas Asociadas</HeaderTemplate>
+                        <ItemTemplate>
+                            <asp:DropDownList ID="comboTareas" Width="150px" runat="server">
+                            </asp:DropDownList>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="false" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+            <br />
+            <a href="CrearCarpeta.aspx" class="btn btn-primary">Crear Carpeta</a>
         </div>
         <div id="main" class="col-md-9">
             <h2>
@@ -130,7 +109,7 @@
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
             <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
             <!-- Button trigger modal -->
-            <asp:Button Text="Nueva Tarea" class="btn btn-primary" data-toggle="modal" data-target="#nuevaTarea"
+            <asp:Button Text="Nueva Tarea" class="btn btn-primary" PostBackUrl="~/Presentacion/CrearTarea.aspx"
                 runat="server" />
         </div>
     </div>

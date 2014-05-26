@@ -38,7 +38,7 @@ namespace Datos
        public String cadenaDeConexion()
        {
            SqlConnectionStringBuilder miConexion = new SqlConnectionStringBuilder();
-           miConexion.DataSource = "PAULITTA-PC\\SQLEXPRESS"; 
+           miConexion.DataSource = "AGOBOOK-PC\\SQLEXPRESS"; 
            miConexion.InitialCatalog = "CAPTasks";
            miConexion.IntegratedSecurity = true;
            return miConexion.ConnectionString;

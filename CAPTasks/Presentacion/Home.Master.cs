@@ -11,8 +11,6 @@ namespace CAPTasks.Presentacion
     {
         protected void Page_Load(object sender, EventArgs e)
         {  
-            //PROBAR LA SESSION:
-
             if (Session["Email"] == null)
             {
 
@@ -28,6 +26,8 @@ namespace CAPTasks.Presentacion
         protected void btnSalir_Click(object sender, EventArgs e)
         {
             //Request.Cookies.Remove("Preferencias");
+            //Request.Cookies.Clear();
+            //FormsAuthentication.SignOut(); 
             Session.Abandon();
             Session.Clear();
             Response.Redirect("~/Presentacion/Login.aspx");

@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Presentacion\ConfirmaRegistro.aspx" />
+    <Content Include="Presentacion\CrearCarpeta.aspx" />
     <Content Include="Presentacion\Home.aspx" />
     <Content Include="Presentacion\Login.aspx" />
   </ItemGroup>
@@ -64,6 +65,13 @@
     </Compile>
     <Compile Include="Presentacion\ConfirmaRegistro.aspx.designer.cs">
       <DependentUpon>ConfirmaRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\CrearCarpeta.aspx.cs">
+      <DependentUpon>CrearCarpeta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CrearCarpeta.aspx.designer.cs">
+      <DependentUpon>CrearCarpeta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -93,10 +101,20 @@
     <Compile Include="Presentacion\Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\CrearTarea.aspx.cs">
+      <DependentUpon>CrearTarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CrearTarea.aspx.designer.cs">
+      <DependentUpon>CrearTarea.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="web.config" />
+    <Content Include="Presentacion\CrearTarea.aspx" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">

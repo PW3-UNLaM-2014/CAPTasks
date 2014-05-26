@@ -1,6 +1,31 @@
 USE [CAPTasks]
 GO
 
+IF EXISTS (SELECT * FROM sysobjects WHERE name='p_CrearTareas')
+BEGIN
+DROP PROCEDURE [dbo].[p_CrearTareas]
+END
+GO
+
+CREATE PROCEDURE [dbo].[p_CrearTareas] 
+	@USUARIOID int,
+	@CARPETAID int,
+	@NOMBRE nvarchar(20),
+	@DESCRIPCION nvarchar(200),
+	@FECHAFIN datetime,
+	@PRIORIDAD smallint,
+	@ESTADO smallint
+
+AS
+BEGIN
+	
+	INSERT INTO [dbo].[Tareas] 
+	VALUES (@USUARIOID,@CARPETAID,@NOMBRE,@DESCRIPCION,@FECHAFIN,@PRIORIDAD,@ESTADO)
+END
+GO
+
+-------------------------------------------------------------------
+
 IF EXISTS (SELECT * FROM sysobjects WHERE name='p_ListarTareas')
 BEGIN
 DROP PROCEDURE [dbo].[p_ListarTareas]
