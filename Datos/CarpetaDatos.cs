@@ -22,7 +22,7 @@ namespace Datos
             if (miConexion.conectar())
             {
                 SqlParameter parametroIdUsuario = new SqlParameter("@ID_USUARIO", id);
-                SqlParameter parametroNombre = new SqlParameter("@NOMBRE",nombre);               
+                SqlParameter parametroNombre = new SqlParameter("@NOMBRE", nombre);
                 SqlParameter parametroDescripcion = new SqlParameter("@DESCRIPCION", descripcion);
 
                 SqlCommand miComando = new SqlCommand("p_CrearCarpeta", miConexion.Sqlconn);
@@ -41,8 +41,8 @@ namespace Datos
             if (miConexion.conectar())
             {
                 DataSet ds = new DataSet();
-                
-                string consulta = "SELECT * FROM Carpetas where IdUsuario=" + idUsuario+"; ";
+
+                string consulta = "SELECT * FROM dbo.Carpetas WHERE IdUsuario=" + idUsuario + "; ";
                 SqlDataAdapter data = new SqlDataAdapter(consulta, miConexion.Sqlconn);
                 data.Fill(ds);
 
@@ -53,6 +53,26 @@ namespace Datos
                     misCarpetas.Add(carpeta);
                 }
                 return misCarpetas;
+            }
+            else return null;
+        }
+
+        //Metodo para averiguar si ya existe esa carpeta:
+        public Carpeta BuscarCarpetaNombre(string nombre)
+        {
+            Carpeta carpeta = new Carpeta();
+            if (miConexion.conectar())
+            {
+                DataSet ds = new DataSet();
+                string consulta = "SELECT * FROM dbo.Carpetas WHERE Nombre='" + nombre + "';"; 
+                SqlDataAdapter data = new SqlDataAdapter(consulta, miConexion.Sqlconn);
+                data.Fill(ds);
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    miCarpeta = new Carpeta(item);
+
+                }
+                return miCarpeta;
             }
             else return null;
         }

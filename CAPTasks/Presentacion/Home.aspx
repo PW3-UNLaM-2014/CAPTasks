@@ -4,38 +4,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- Modal -->
-    <div class="modal fade" id="nuevaCarpeta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="home.aspx" method="post">
-                <div class="modal-header">
-                    <asp:Button Text="&times;" runat="server" class="close" data-dismiss="modal" aria-hidden="true" />
-                    <h4 class="modal-title" id="H1">
-                        Nueva carpeta</h4>
-                </div>
-                <div class="modal-body">
-                    <asp:Label Text="Nombre" for="nombre" runat="server" />
-                    <asp:TextBox runat="server" name="nombre" />
-                    <asp:Label ID="lblDescripcion" Text="Descripcion" runat="server" for="descripcion" />
-                    <asp:TextBox ID="txtCarpetaDescripcion" runat="server" name="descripcion" />
-                </div>
-                <div class="modal-footer">
-                    <asp:Button Text="Cerrar" class="btn btn-default" data-dismiss="modal" runat="server" />
-                    <asp:Button ID="btnGuardarCarpeta" class="btn btn-primary" Text="Guardar Carpeta"
-                        runat="server" />
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <div>
     <div class="col-md-12">
         <div id="sidebar" class="col-md-3">
             <h2>
                 Carpetas
             </h2>
-            <asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
+            <asp:BulletedList ID="bullCarpetas" DisplayMode="LinkButton" runat="server">
+            </asp:BulletedList>
+            <%--<asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
                  CellPadding="4" ForeColor="#333333"
                 GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
@@ -43,13 +20,8 @@
                     <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" Visible="false" />
                     <asp:BoundField DataField="IdCarpeta" HeaderText="IdCarpeta" Visible="false" />
                     <asp:BoundField DataField="Nombre" HeaderText="Carpeta" />
-                    <asp:TemplateField HeaderText="Tareas">
-                        <HeaderTemplate>
-                            Tareas Asociadas</HeaderTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="comboTareas" Width="150px" runat="server">
-                            </asp:DropDownList>
-                        </ItemTemplate>
+                    <asp:TemplateField HeaderText="Tareas Asociadas">
+                       <asp:HyperLink runat="server">Ver</asp:HyperLink>
                     </asp:TemplateField>
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="false" />
                 </Columns>
@@ -63,7 +35,7 @@
                 <SortedAscendingHeaderStyle BackColor="#6D95E1" />
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
+            </asp:GridView>--%>
             <br />
             <a href="CrearCarpeta.aspx" class="btn btn-primary">Crear Carpeta</a>
         </div>
@@ -72,16 +44,24 @@
                 Lista de tareas
             </h2>
             <asp:GridView ID="gvListaTareas" runat="server" AutoGenerateColumns="False" ForeColor="#333333"
-                GridLines="None" CellPadding="40">
+                GridLines="None" CellPadding="40" DataKeyNames="IdTarea" OnRowDataBound="gvListaTareas_RowDataBound">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:BoundField DataField="Fecha" DataFormatString="{0:d}" HeaderText="Fecha" />
-                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-                    <asp:BoundField DataField="Prioridad" HeaderText="Prioridad" />
-                    <asp:BoundField DataField="IdCarpeta" HeaderText="Carpeta" />
-                    <asp:BoundField DataField="Estado" HeaderText="Completada" />
-                    <asp:CommandField ButtonType="Button" EditText="Completar" HeaderText="Accion" ShowEditButton="True" />
+                    <asp:BoundField DataField="IdTarea" HeaderText="IdTarea" Visible="False" />
+                    <asp:BoundField DataField="Fecha" DataFormatString="{0:d}" HeaderText="Fecha" 
+                        ReadOnly="True" />
+                    <asp:BoundField DataField="Tarea" HeaderText="Nombre" ReadOnly="True" />
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" 
+                        ReadOnly="True" />
+                    <asp:BoundField DataField="Prioridad" HeaderText="Prioridad" ReadOnly="True" />
+                    <asp:BoundField DataField="Carpeta" HeaderText="Carpeta" ReadOnly="True" />
+                    <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                    <asp:TemplateField HeaderText="Accion" ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:Button ID="btnCompletar" runat="server" CausesValidation="false" 
+                                CommandName="Update" Text="Completar" OnClick="btnCompletar_Click" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -95,6 +75,8 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+
+
             <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
             <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
@@ -103,4 +85,5 @@
                 runat="server" />
         </div>
     </div>
+</div>   
 </asp:Content>

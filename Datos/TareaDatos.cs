@@ -41,65 +41,18 @@ namespace Datos
             miConexion.Sqlconn.Close();
         }
 
-
-        public List<Tarea> ListaDeMisTareas(int idUsuario)
+        public void CompletoLaTarea(int idTarea)
         {
-            
             if (miConexion.conectar())
             {
-                SqlParameter parametroUsuario = new SqlParameter("@USUARIOID", idUsuario);
-                SqlCommand miComando = new SqlCommand("p_ListarTareas", miConexion.Sqlconn);
+                SqlParameter parametroTarea = new SqlParameter("@TAREAID", idTarea);
+                SqlCommand miComando = new SqlCommand("p_CompletaLaTarea", miConexion.Sqlconn);
                 miComando.CommandType = CommandType.StoredProcedure;
-                miComando.Parameters.Add(parametroUsuario);
-
-                SqlDataAdapter data = new SqlDataAdapter(); //Comandos de datos y conexión de BD que se usan para rellenar un DataSet
-                DataSet ds = new DataSet();
-                data.SelectCommand = miComando; //Le paso al objeto del SqlDataAdapter la conexion
-                data.Fill(ds); //Rellena el objeto del DataSet
-
-
-                List<Tarea> listaTareas = new List<Tarea>();
-
-                foreach (DataRow item in ds.Tables[0].Rows) //Recorro fila de datos
-                {
-                    var tarea = new Tarea(item);
-
-                    listaTareas.Add(tarea); //Agrego cada tarea a la lista
-                }
-                return listaTareas;
+                miComando.Parameters.Add(parametroTarea);
+                miComando.ExecuteNonQuery();   
             }
-            else return null;
+            miConexion.Sqlconn.Close();
         }
-
-        public List<Tarea> ListaDeTodasMisTareas(int idUsuario)
-        {
-
-            if (miConexion.conectar())
-            {
-                SqlParameter parametroUsuario = new SqlParameter("@USUARIOID", idUsuario);
-                SqlCommand miComando = new SqlCommand("p_ListarTodasLasTareas", miConexion.Sqlconn);
-                miComando.CommandType = CommandType.StoredProcedure;
-                miComando.Parameters.Add(parametroUsuario);
-
-                SqlDataAdapter data = new SqlDataAdapter(); //Comandos de datos y conexión de BD que se usan para rellenar un DataSet
-                DataSet ds = new DataSet();
-                data.SelectCommand = miComando; //Le paso al objeto del SqlDataAdapter la conexion
-                data.Fill(ds); //Rellena el objeto del DataSet
-
-
-                List<Tarea> listaTareas = new List<Tarea>();
-
-                foreach (DataRow item in ds.Tables[0].Rows) //Recorro fila de datos
-                {
-                    var tarea = new Tarea(item);
-
-                    listaTareas.Add(tarea); //Agrego cada tarea a la lista
-                }
-                return listaTareas;
-            }
-            else return null;
-        }
-
 
     }
 }

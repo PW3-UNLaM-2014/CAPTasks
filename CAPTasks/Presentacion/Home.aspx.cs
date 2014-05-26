@@ -6,31 +6,45 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
 using Negocio;
+using System.Data;
 
 namespace CAPTasks.Presentacion
 {
     public partial class Home1 : System.Web.UI.Page
     {
         CarpetaServicios cs = new CarpetaServicios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                CargaTabla();
+                CargaCarpetas();
+                
+            }
+        }
+
+        public void CargaTabla()
+        {
+
             int idUsuario;
             idUsuario = Convert.ToInt32(Session["IdUsuario"]);
 
-            List<Tarea> misTareas = new List<Tarea>();
-            TareaServicios ts = new TareaServicios();
+            List<LecturaTarea> misTareas = new List<LecturaTarea>();
+            LecturaTareaServicios lts = new LecturaTareaServicios();
 
-            misTareas = ts.ListarMisTareas(idUsuario);
+            misTareas = lts.ListarMisTareas(idUsuario);
 
             gvListaTareas.DataSource = misTareas;
             gvListaTareas.DataBind();
-
-            //RECUPERAR CARPETAS:
-            gvCargarCarpetas(idUsuario);
-            
         }
 
- 
+        public void CargaCarpetas()
+        {
+            int idUsuario;
+            idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+            gvCargarCarpetas(idUsuario);
+        }
 
         protected void btnTareasFinalizadas_Click(object sender, EventArgs e)
         {
@@ -39,36 +53,57 @@ namespace CAPTasks.Presentacion
                 int idUsuario;
                 idUsuario = Convert.ToInt32(Session["IdUsuario"]);
 
-                List<Tarea> todasMisTareas = new List<Tarea>();
-                TareaServicios ts = new TareaServicios();
+                List<LecturaTarea> todasMisTareas = new List<LecturaTarea>();
+                LecturaTareaServicios lts = new LecturaTareaServicios();
 
-                todasMisTareas = ts.ListarTodasMisTareas(idUsuario);
+                todasMisTareas = lts.ListarTodasMisTareas(idUsuario);
 
                 gvListaTareas.DataSource = todasMisTareas;
                 gvListaTareas.DataBind();
             }
             else
             {
-                int idUsuario;
-                idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-
-                List<Tarea> misTareas = new List<Tarea>();
-                TareaServicios ts = new TareaServicios();
-
-                misTareas = ts.ListarMisTareas(idUsuario);
-
-                gvListaTareas.DataSource = misTareas;
-                gvListaTareas.DataBind();
+                CargaTabla();
             }
         }
 
+        protected void btnCompletar_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            int idTarea = int.Parse(gvListaTareas.DataKeys[row.RowIndex].Value.ToString());
+
+            TareaServicios ts = new TareaServicios();
+            ts.CompletoLaTarea(idTarea);
+            CargaTabla();
+        }
+
+        protected void gvListaTareas_RowDataBound(Object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+
+                string estado = e.Row.Cells[6].Text.ToString();
+
+
+                if (estado == "Completada")
+                {
+                    Button btn = (Button)e.Row.Cells[7].FindControl("btnCompletar");
+                    btn.Visible = false;
+                }
+
+            }
+
+        }
 
         //PARA CARPETAS:
         private void gvCargarCarpetas(int idBuscar)
         {
-            gvCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
-            gvCarpetas.DataBind();          
+            bullCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
+            bullCarpetas.DataTextField = "Nombre";
+            bullCarpetas.DataValueField = "IdCarpeta";
+            bullCarpetas.DataBind();        
         }
-
     }
 }

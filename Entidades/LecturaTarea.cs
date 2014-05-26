@@ -6,35 +6,40 @@ using System.Data;
 
 namespace Entidades
 {
-    public class Tarea
+    public class LecturaTarea
     {
-        public int IdCarpeta { set; get; }
+        public int IdTarea { set; get; }
         public int IdUsuario { set; get; }
-        public string Nombre { set; get; }
+        public string Carpeta { set; get; }
+        public string Tarea { set; get; }
         public string Descripcion { set; get; }
         public DateTime Fecha { set; get; }
-        public int Prioridad { set; get; }
-        public int Estado { set; get; }
+        public string Prioridad { set; get; }
+        public string Estado { set; get; }
 
-        public Tarea()
+        public LecturaTarea()
         {
         }
 
-        public Tarea(DataRow dr)
+        public LecturaTarea(DataRow dr)
         {
             if (dr != null)
             {
-                if (dr["IdCarpeta"] != null)
+                if (dr["IdTarea"] != null)
                 {
-                    this.IdCarpeta = Convert.ToInt32(dr["IdCarpeta"]);
+                    this.IdTarea = Convert.ToInt32(dr["IdTarea"]);
                 }
                 if (dr["IdUsuario"] != null)
                 {
                     this.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
                 }
-                if (dr["Nombre"] != null)
+                if (dr["NombreCarpeta"] != null)
                 {
-                    this.Nombre = dr["Nombre"].ToString();
+                    this.Carpeta = dr["NombreCarpeta"].ToString();
+                }
+                if (dr["NombreTarea"] != null)
+                {
+                    this.Tarea = dr["NombreTarea"].ToString();
                 }
                 if (dr["Descripcion"] != null)
                 {
@@ -46,13 +51,14 @@ namespace Entidades
                 }
                 if (dr["Prioridad"] != null)
                 {
-                    this.Prioridad = Convert.ToInt32(dr["Prioridad"]);
+                    this.Prioridad = dr["Prioridad"].ToString();
                 }
                 if (dr["Estado"] != null)
                 {
-                    this.Estado = Convert.ToInt32(dr["Estado"]);
+                    this.Estado = dr["Estado"].ToString();
                 }
             }
         }
+
     }
 }

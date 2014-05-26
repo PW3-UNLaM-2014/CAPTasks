@@ -58,6 +58,15 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
         
         /// <summary>
+        /// Control btnGuardarCarpeta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarCarpeta;
+        
+        /// <summary>
         /// Control btnCancelarCarpeta.
         /// </summary>
         /// <remarks>
@@ -67,12 +76,12 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnCancelarCarpeta;
         
         /// <summary>
-        /// Control btnGuardarCarpeta.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarCarpeta;
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

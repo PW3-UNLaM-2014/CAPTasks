@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 using Datos;
 using Entidades;
-using System.Data;
 
 namespace Negocio
 {
@@ -19,16 +19,10 @@ namespace Negocio
             td.CrearNuevaTarea(tarea);
         }
 
-        public List<Tarea> ListarMisTareas(int idUsuario)
+        public void CompletoLaTarea(int idTarea)
         {
-            return td.ListaDeMisTareas(idUsuario);        
+            td.CompletoLaTarea(idTarea);
         }
-
-        public List<Tarea> ListarTodasMisTareas(int idUsuario)
-        {
-            return td.ListaDeTodasMisTareas(idUsuario);
-        }
-
 
     }
 }
