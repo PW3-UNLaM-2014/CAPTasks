@@ -26,7 +26,7 @@ namespace Entidades
             {
                 if (dr["IdCarpeta"] != null)
                 {
-                    this.IdCarpeta = Convert.ToInt32(dr["IdTarea"]);
+                    this.IdCarpeta = Convert.ToInt32(dr["IdCarpeta"]);
                 }
                 if (dr["IdUsuario"] != null)
                 {
