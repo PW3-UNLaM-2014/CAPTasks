@@ -21,9 +21,9 @@ namespace Negocio
             return cd.ListarCarpetas(idUsuario);
         }
 
-        public List<Tarea> ListarTareas(int idUsuario, int idCarpeta)
-        {
-            return cd.ListarTarea(idUsuario, idCarpeta);
-        }
+        //public List<Tarea> ListarTareas(int idUsuario, int idCarpeta)
+        //{
+        //    return cd.ListarTarea(idUsuario, idCarpeta);
+        //}
     }
 }

@@ -37,6 +37,7 @@ CREATE PROCEDURE [dbo].[p_CrearCarpeta]
 @DESCRIPCION nvarchar(200)
 AS
 BEGIN
+IF NOT EXISTS(SELECT 1 FROM [dbo].[Carpetas] WHERE [Nombre]=@NOMBRE AND [IdUsuario]=@ID_USUARIO)
 INSERT INTO [dbo].[Carpetas]
 ([Nombre],[IdUsuario],[Descripcion])
 VALUES

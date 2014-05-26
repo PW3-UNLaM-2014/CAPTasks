@@ -23,11 +23,10 @@ namespace CAPTasks.Presentacion
             // CARGAR CARPETAS EN DROPDOWN
             misCarpetas = carpetaServicio.ListarCarpetas(idUsuario);
 
-            ddlNuevaTareaIdCarpeta.DataSource = misCarpetas;
+            ddlNuevaTareaIdCarpeta.DataSource = carpetaServicio.ListarCarpetas(idUsuario);
+            ddlNuevaTareaIdCarpeta.DataTextField = "Nombre";
+            ddlNuevaTareaIdCarpeta.DataValueField = "IdCarpeta";
             ddlNuevaTareaIdCarpeta.DataBind();
-
-
-
         }
 
         protected void btnGuardarTarea_Click(object sender, EventArgs e)
@@ -39,7 +38,6 @@ namespace CAPTasks.Presentacion
             {
                 int idUsuario;
                 idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-
                 tarea.IdCarpeta = Convert.ToInt16(ddlNuevaTareaIdCarpeta.SelectedValue);
                 //tarea.IdCarpeta = 1;
                 tarea.IdUsuario = idUsuario;
