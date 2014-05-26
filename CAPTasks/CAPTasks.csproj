@@ -101,17 +101,17 @@
     <Compile Include="Presentacion\Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\AgregarTarea.aspx.cs">
-      <DependentUpon>AgregarTarea.aspx</DependentUpon>
+    <Compile Include="Presentacion\CrearTarea.aspx.cs">
+      <DependentUpon>CrearTarea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Presentacion\AgregarTarea.aspx.designer.cs">
-      <DependentUpon>AgregarTarea.aspx</DependentUpon>
+    <Compile Include="Presentacion\CrearTarea.aspx.designer.cs">
+      <DependentUpon>CrearTarea.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Presentacion\AgregarTarea.aspx" />
+    <Content Include="Presentacion\CrearTarea.aspx" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -36,7 +36,7 @@
                 Carpetas
             </h2>
             <asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
-                OnRowDataBound="gvCarpetas_RowDataBound" CellPadding="4" ForeColor="#333333"
+                 CellPadding="4" ForeColor="#333333"
                 GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -99,7 +99,7 @@
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
             <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
             <!-- Button trigger modal -->
-            <asp:Button Text="Nueva Tarea" class="btn btn-primary" PostBackUrl="~/Presentacion/AgregarTarea.aspx"
+            <asp:Button Text="Nueva Tarea" class="btn btn-primary" PostBackUrl="~/Presentacion/CrearTarea.aspx"
                 runat="server" />
         </div>
     </div>
