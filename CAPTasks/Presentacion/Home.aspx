@@ -50,43 +50,42 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="nuevaCarpeta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="home.aspx" method="post">
-                <div class="modal-header">
-                    <asp:Button Text="&times;" runat="server" class="close" data-dismiss="modal" aria-hidden="true" />
-                    <h4 class="modal-title" id="H1">
-                        Nueva carpeta</h4>
-                </div>
-                <div class="modal-body">
-                    <asp:Label Text="Nombre" for="nombre" runat="server" />
-                    <asp:TextBox runat="server" name="nombre" />
-                    <asp:Label ID="lblDescripcion" Text="Descripcion" runat="server" for="descripcion" />
-                    <asp:TextBox ID="txtCarpetaDescripcion" runat="server" name="descripcion" />
-                </div>
-                <div class="modal-footer">
-                    <asp:Button Text="Cerrar" class="btn btn-default" data-dismiss="modal" runat="server" />
-                    <asp:Button ID="btnGuardarCarpeta" class="btn btn-primary" Text="Guardar Carpeta"
-                        runat="server" />
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="col-md-12">
         <div id="sidebar" class="col-md-3">
             <h2>
                 Carpetas
             </h2>
-            <ul>
-                <li><a href="#">Default</a></li>
-            </ul>
-            <!-- Button trigger modal -->
-            <asp:Button Text="Nueva Carpeta" class="btn btn-primary" data-toggle="modal" data-target="#nuevaCarpeta"
-                runat="server" />
+            <asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
+                OnRowDataBound="gvCarpetas_RowDataBound" CellPadding="4" ForeColor="#333333"
+                GridLines="None">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" Visible="false" />
+                    <asp:BoundField DataField="IdCarpeta" HeaderText="IdCarpeta" Visible="false" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Carpeta" />
+                    <asp:TemplateField HeaderText="Tareas">
+                        <HeaderTemplate>
+                            Tareas Asociadas</HeaderTemplate>
+                        <ItemTemplate>
+                            <asp:DropDownList ID="comboTareas" Width="150px" runat="server">
+                            </asp:DropDownList>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" Visible="false" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+            <br />
+            <a href="CrearCarpeta.aspx" class="btn btn-primary">Crear Carpeta</a>
         </div>
         <div id="main" class="col-md-9">
             <h2>

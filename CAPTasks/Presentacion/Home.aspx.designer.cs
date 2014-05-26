@@ -94,31 +94,13 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Button btnGuardarTarea;
         
         /// <summary>
-        /// Control lblDescripcion.
+        /// Control gvCarpetas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion;
-        
-        /// <summary>
-        /// Control txtCarpetaDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarpetaDescripcion;
-        
-        /// <summary>
-        /// Control btnGuardarCarpeta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarCarpeta;
+        protected global::System.Web.UI.WebControls.GridView gvCarpetas;
         
         /// <summary>
         /// Control gvListaTareas.
