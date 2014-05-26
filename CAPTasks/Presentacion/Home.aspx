@@ -72,7 +72,7 @@
                 Lista de tareas
             </h2>
             <asp:GridView ID="gvListaTareas" runat="server" AutoGenerateColumns="False" ForeColor="#333333"
-                GridLines="None" CellPadding="40" DataKeyNames="IdTarea">
+                GridLines="None" CellPadding="40" DataKeyNames="IdTarea" OnRowDataBound="gvListaTareas_RowDataBound">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="IdTarea" HeaderText="IdTarea" Visible="False" />

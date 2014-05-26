@@ -79,6 +79,24 @@ namespace CAPTasks.Presentacion
             CargaTabla();
         }
 
+        protected void gvListaTareas_RowDataBound(Object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+
+                string estado = e.Row.Cells[6].Text.ToString();
+
+
+                if (estado == "Completada")
+                {
+                    Button btn = (Button)e.Row.Cells[7].FindControl("btnCompletar");
+                    btn.Visible = false;
+                }
+
+            }
+
+        }
+
         //PARA CARPETAS:
         private void gvCargarCarpetas(int idBuscar)
         {
