@@ -23,6 +23,7 @@
                 ValidationGroup="carpeta" runat="server" OnClick="btnGuardarCarpeta_Click" />
             <asp:Button Text="Cancelar" ID="btnCancelarCarpeta" class="btn btn-warning" data-dismiss="modal"
                 runat="server" OnClick="btnCancelarCarpeta_Click" />
+            <asp:Label ID="lblError" ForeColor = "Red" runat="server" Text=""></asp:Label>
         </div>
     </div>
 </asp:Content>

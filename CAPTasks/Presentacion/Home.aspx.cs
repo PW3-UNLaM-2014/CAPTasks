@@ -79,12 +79,13 @@ namespace CAPTasks.Presentacion
             CargaTabla();
         }
 
-        //PARA CARPETAS:
+        //Para carpetas:
         private void gvCargarCarpetas(int idBuscar)
         {
-            gvCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
-            gvCarpetas.DataBind();          
+            bullCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
+            bullCarpetas.DataTextField = "Nombre";
+            bullCarpetas.DataValueField = "IdCarpeta";
+            bullCarpetas.DataBind();        
         }
-
     }
 }
