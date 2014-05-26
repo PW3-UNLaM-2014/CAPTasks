@@ -21,6 +21,11 @@ namespace Negocio
             return cd.ListarCarpetas(idUsuario);
         }
 
+        public Carpeta BuscarCarpetaNombre(string nombre)
+        {
+            return cd.BuscarCarpetaNombre(nombre);
+        }
+
         //public List<Tarea> ListarTareas(int idUsuario, int idCarpeta)
         //{
         //    return cd.ListarTarea(idUsuario, idCarpeta);

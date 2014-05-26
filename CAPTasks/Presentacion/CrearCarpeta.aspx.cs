@@ -19,11 +19,27 @@ namespace CAPTasks.Presentacion
 
         protected void btnGuardarCarpeta_Click(object sender, EventArgs e)
         {
-            int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-            string nombre = txtNombre.Text;
-            string descripcion = txtDescripcion.Text;
-            cs.CrearNuevaCarpeta(idUsuario, nombre, descripcion);
-            Response.Redirect("~/Presentacion/Home.aspx");
+            if (Page.IsValid)
+            {
+                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                string nombre = txtNombre.Text;
+                string descripcion = txtDescripcion.Text;
+                Carpeta carpeta;
+                carpeta = cs.BuscarCarpetaNombre(nombre);
+                if (txtNombre.Text == carpeta.Nombre)
+                {
+                    lblError.Text = "No se puede crear carpeta con igual nombre";
+                }
+                else
+                {
+                    cs.CrearNuevaCarpeta(idUsuario, nombre, descripcion);
+                    Response.Redirect("~/Presentacion/Home.aspx");
+                }
+            }
+            else
+            {
+                lblError.Text = "No se puede crear la carpeta, intentelo mas tarde";
+            }
         }
 
         protected void btnCancelarCarpeta_Click(object sender, EventArgs e)

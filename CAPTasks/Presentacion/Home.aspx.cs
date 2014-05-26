@@ -100,9 +100,10 @@ namespace CAPTasks.Presentacion
         //PARA CARPETAS:
         private void gvCargarCarpetas(int idBuscar)
         {
-            gvCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
-            gvCarpetas.DataBind();          
+            bullCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
+            bullCarpetas.DataTextField = "Nombre";
+            bullCarpetas.DataValueField = "IdCarpeta";
+            bullCarpetas.DataBind();        
         }
-
     }
 }

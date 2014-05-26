@@ -13,40 +13,13 @@ namespace CAPTasks.Presentacion {
     public partial class Home1 {
         
         /// <summary>
-        /// Control lblDescripcion.
+        /// Control bullCarpetas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion;
-        
-        /// <summary>
-        /// Control txtCarpetaDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCarpetaDescripcion;
-        
-        /// <summary>
-        /// Control btnGuardarCarpeta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarCarpeta;
-        
-        /// <summary>
-        /// Control gvCarpetas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCarpetas;
+        protected global::System.Web.UI.WebControls.BulletedList bullCarpetas;
         
         /// <summary>
         /// Control gvListaTareas.
