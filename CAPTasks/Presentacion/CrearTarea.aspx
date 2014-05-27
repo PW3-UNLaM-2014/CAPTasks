@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--  para guardar tarea -->
-    <div class="container">
+    <div class="container margin-bottom">
         <div class="col-md-6 col-md-offset-3">
             <h3 class="page-header">
                 Guardar tarea</h3>

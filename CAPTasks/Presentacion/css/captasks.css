@@ -341,8 +341,12 @@ border-bottom: 1px solid #e5e5e5;
 }
 
 #pie 
-{
-    
+{   
     background-color: #f8f8f8;
-    }
+}
 
+.margin-bottom 
+{
+    margin-bottom:20px
+}
+    

@@ -45,7 +45,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentRegistracion" runat="server">
     <%--REGISTRACION--%>
-    <div class="container">
+    <div class="container margin-bottom">
         <div class="col-md-6 col-md-offset-6">
             <h2>
                 Abre una cuenta<small> Es gratis!</small></h2>
