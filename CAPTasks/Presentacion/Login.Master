@@ -32,9 +32,9 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    <div id="pie" class="fixed-bottom col-md-12">
-        <div class="modal-footer">
-            <b>Copyright 2014 - Todos los derechos reservados</b>
+    <div id="pie" class="navbar-fixed-bottom">
+        <div class="modal-footer container">
+            <small class="text-muted">Copyright 2014 - Todos los derechos reservados</small>
         </div>
     </div>
 </body>
