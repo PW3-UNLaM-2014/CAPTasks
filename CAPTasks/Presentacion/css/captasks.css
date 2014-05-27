@@ -349,4 +349,11 @@ border-bottom: 1px solid #e5e5e5;
 {
     margin-bottom:20px
 }
+
+#btnCompletar,.btn-circle {
+    content: "\f0dc";
+    float: right;
+    font-family: fontawesome;
+    color: rgba(50,50,50,.5);
+}
     
