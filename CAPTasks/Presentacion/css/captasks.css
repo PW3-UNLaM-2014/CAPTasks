@@ -327,3 +327,11 @@ table.dataTable thead .sorting:after {
 .show-grid {
     margin: 15px 0;
 }
+
+.fixed-bottom 
+{
+    bottom:0
+}
+.header {
+border-bottom: 1px solid #e5e5e5;
+}
