@@ -17,9 +17,15 @@ namespace Negocio
             return ltd.ListaDeMisTareas(idUsuario);
         }
 
+        public List<LecturaTarea> ListarMisTareasPorCarpeta(int idCarpeta)
+        {
+            return ltd.ListarMisTareasPorCarpeta(idCarpeta);
+        }
+
         public List<LecturaTarea> ListarTodasMisTareas(int idUsuario)
         {
             return ltd.ListaDeTodasMisTareas(idUsuario);
         }
+
     }
 }
