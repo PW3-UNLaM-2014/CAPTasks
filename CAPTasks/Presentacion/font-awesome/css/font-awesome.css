@@ -20,6 +20,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.fa-with-txt{
+  display: inline-block;
+  font-family: FontAwesome,Arial;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /* makes the font 33% larger relative to the icon container */
 .fa-lg {
   font-size: 1.3333333333333333em;

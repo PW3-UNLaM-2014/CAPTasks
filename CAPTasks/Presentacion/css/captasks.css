@@ -22,14 +22,14 @@ body {
 }
 
 #page-wrapper {
-    padding: 0 15px;
+    padding: 20px 30px;
     background-color: #fff;
-min-height: 500px;
+min-height: 500px;padding-top: 20px;
 }
 
 @media(min-width:768px) {
     #page-wrapper {
-        padding: 0 30px;
+        padding: 20px 30px;
         border-left: 1px solid #e7e7e7;
         border-right: 1px solid #e7e7e7;
 min-height: 500px;
@@ -133,10 +133,7 @@ min-height: 500px;
 
 @media(min-width:768px) {
     .navbar-static-side {
-        z-index: 1;
-        position: absolute;
-        width: 250px;
-        margin-top: 51px;
+        padding-top: 20px;
     }
 
     .navbar-top-links .dropdown-messages,
@@ -349,11 +346,3 @@ border-bottom: 1px solid #e5e5e5;
 {
     margin-bottom:20px
 }
-
-#btnCompletar,.btn-circle {
-    content: "\f0dc";
-    float: right;
-    font-family: fontawesome;
-    color: rgba(50,50,50,.5);
-}
-    

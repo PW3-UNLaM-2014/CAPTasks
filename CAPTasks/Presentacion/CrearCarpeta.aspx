@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <div class="col-md-6 col-md-offset-3">
+        <div id="page-wrapper" class="col-md-6 col-md-offset-3">
             <h3 class="page-header">
                 Crear carpeta</h3>
             <asp:Label ID="lblNombre" runat="server" Text="Nombre:"></asp:Label>

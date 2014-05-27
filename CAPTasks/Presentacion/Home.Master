@@ -29,12 +29,12 @@
             <div id="divSessionInfo" class="col-md-6 text-right text-info">
                 BIENVENIDO,
                 <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
-                <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" class="btn btn-default">
+                <asp:Button ID="btnSalir" runat="server" Text="&#xf08b; Salir" OnClick="btnSalir_Click" class="btn btn-default fa-with-txt ">
                 </asp:Button>
             </div>
         </div>
     </div>
-    <div class="container margin-bottom">
+    <div class="container">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>

@@ -124,14 +124,12 @@ namespace CAPTasks.Presentacion
             {
                 lblNoHayTareas.Visible = true;
                 ckbTareasFinalizadas.Visible = false;
-                lblTareasFinalizadas.Visible = false;
                 btnTareasFinalizadas.Visible = false;
             }
             else
             {
                 lblNoHayTareas.Visible = false;
                 ckbTareasFinalizadas.Visible = true;
-                lblTareasFinalizadas.Visible = true;
                 btnTareasFinalizadas.Visible = true;
             }
 

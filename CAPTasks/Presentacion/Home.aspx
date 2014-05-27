@@ -5,11 +5,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col-md-12">
-        <div id="sidebar" class="col-md-3">
+        <div id="sidebar" class="col-md-3 navbar-default navbar-static-side">
             <h2>
                 Carpetas
             </h2>
-            <asp:BulletedList ID="bullCarpetas" DisplayMode="LinkButton" runat="server" OnClick="bullCarpetas_Click">
+            <asp:BulletedList ID="bullCarpetas" CssClass="nav" DisplayMode="LinkButton" runat="server" OnClick="bullCarpetas_Click">
             </asp:BulletedList>
             <%--<asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
                  CellPadding="4" ForeColor="#333333"
@@ -36,7 +36,7 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>--%>
             <br />
-            <a href="CrearCarpeta.aspx" class="btn btn-primary">Crear Carpeta</a>
+            <a href="CrearCarpeta.aspx" class="btn btn-primary fa-with-txt">&#xf067; Crear Carpeta</a>
         </div>
         <div id="page-wrapper" class="col-md-9">
             <h2>
@@ -83,10 +83,10 @@
             <asp:Label ID="lblNoHayTareas" class="alert alert-danger" runat="server" Text="No se encuentran tareas en esta carpeta!"
                 Visible="false"></asp:Label>
             <asp:CheckBox ID="ckbTareasFinalizadas" CssClass="checkbox checkbox-inline" runat="server" Text="Incluir completadas" />
-            <asp:Button ID="btnTareasFinalizadas" runat="server" class="btn btn-info" Text="Actualizar"
+            <asp:Button ID="btnTareasFinalizadas" runat="server" class="btn btn-info fa-with-txt" Text="&#xf021; Actualizar"
                 OnClick="btnTareasFinalizadas_Click" />
             <!-- Button trigger modal -->
-            <asp:Button Text="Nueva Tarea" class="btn btn-primary" PostBackUrl="~/Presentacion/CrearTarea.aspx"
+            <asp:Button Text="&#xf067; Nueva Tarea" class="btn btn-primary fa-with-txt" PostBackUrl="~/Presentacion/CrearTarea.aspx"
                 runat="server" />
         </div>
 </asp:Content>
