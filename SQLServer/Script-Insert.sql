@@ -1,6 +1,6 @@
 --USUARIO REGISTRADO:
 --Email: cegisele@hotmail.com
---Contrasenia: abQW12
+--Contrasenia: asQW12
 
 --CUENTA DE GMAIL GRUPAL:
 --unlampw3@gmail.com
