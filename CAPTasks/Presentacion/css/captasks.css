@@ -346,3 +346,13 @@ border-bottom: 1px solid #e5e5e5;
 {
     margin-bottom:20px
 }
+
+.contenedor-imagen 
+{ 
+    text-align:center;
+}
+.contenedor-imagen img
+{
+    width:100%;
+    padding:8% 17% 17% 17%
+}
