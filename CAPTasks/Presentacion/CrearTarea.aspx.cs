@@ -19,42 +19,36 @@ namespace CAPTasks.Presentacion
             int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
             if (!IsPostBack)
             {
-                calNuevaTareaFecha.SelectedDate = DateTime.Now; //Selecciona el dia de hoy
+                calNuevaTareaFecha.SelectedDate = DateTime.Now.Date; //Selecciona el dia de hoy
                 ddlNuevaTareaIdCarpeta.DataSource = carpetaServicio.ListarCarpetas(idUsuario);
                 ddlNuevaTareaIdCarpeta.DataTextField = "Nombre";
                 ddlNuevaTareaIdCarpeta.DataValueField = "IdUsuario";
                 ddlNuevaTareaIdCarpeta.DataBind();
             }
-           
+
         }
-        
+
         protected void btnGuardarTarea_Click(object sender, EventArgs e)
         {
             Tarea tarea = new Tarea();
-            
-            if (Page.IsValid)
-            {
-                int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
-                int id = Convert.ToInt32(ddlNuevaTareaIdCarpeta.SelectedValue);
-                tarea.IdCarpeta = id;
-                tarea.IdUsuario = idUsuario;
-                tarea.Nombre = txtNuevaTareaNombre.Text;
-                tarea.Descripcion = txtNuevaTareaDescripcion.Text;
-                tarea.Fecha = calNuevaTareaFecha.SelectedDate.Date;
-                tarea.Prioridad = Convert.ToInt16(ddlNuevaTareaPrioridad.SelectedValue);
-                tareaService.CrearNuevaTarea(tarea);
 
+            int idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+            int id = Convert.ToInt32(ddlNuevaTareaIdCarpeta.SelectedValue);
+            tarea.IdCarpeta = id;
+            tarea.IdUsuario = idUsuario;
+            tarea.Nombre = txtNuevaTareaNombre.Text;
+            tarea.Descripcion = txtNuevaTareaDescripcion.Text;
+            tarea.Fecha = calNuevaTareaFecha.SelectedDate.Date;
+            tarea.Prioridad = Convert.ToInt16(ddlNuevaTareaPrioridad.SelectedValue);
+
+            if (tarea.Fecha >= DateTime.Now.Date)
+            {
+                tareaService.CrearNuevaTarea(tarea);
                 Response.Redirect("~/Presentacion/Home.aspx");
             }
             else
             {
-                ddlNuevaTareaIdCarpeta.Text = "";
-                txtNuevaTareaNombre.Text = "";
-                txtNuevaTareaDescripcion.Text = "";
-                calNuevaTareaFecha.SelectedDate = DateTime.Now;
-                ddlNuevaTareaPrioridad.Text = "";
-                chkNuevaTareaEstado.Text = "";
-                lblNuevaTareaInformacionEstado.Text = "Error creando la tarea, vuelva a intentarlo";
+                lblError.Text = "La fecha tienen que ser mayor o igual al dia de hoy";
             }
         }
 

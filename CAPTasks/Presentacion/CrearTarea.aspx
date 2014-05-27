@@ -10,7 +10,7 @@
             <h3 class="page-header">
                 Guardar tarea</h3>
             <div class="form-group">
-                <asp:Label ID="lblNuevaTareaNombre" Text="Nombre" runat="server" for="txtNuevaTareaNombre" />
+                <asp:Label ID="lblNuevaTareaNombre" Text="Nombre:" runat="server" for="txtNuevaTareaNombre" />
                 <asp:TextBox class="form-control" runat="server" ID="txtNuevaTareaNombre" placeholder="Escriba aqui la tarea" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtNuevaTareaNombre"
                     Display="Dynamic" ForeColor="Red" runat="server" ValidationGroup="tarea" ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
@@ -19,7 +19,7 @@
                     ValidationGroup="tarea" ErrorMessage="Máximo 20 caracteres"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
-                <asp:Label ID="lblNuevaTareaDescripcion" Text="Descripcion" runat="server" MaxLength="200"
+                <asp:Label ID="lblNuevaTareaDescripcion" Text="Descripción:" runat="server" MaxLength="200"
                     for="txtNuevaTareaDescripcion" />
                 <asp:TextBox class="form-control" TextMode="MultiLine" runat="server" ID="txtNuevaTareaDescripcion"
                     placeholder="Escriba aqui la descripcion" />
@@ -28,7 +28,7 @@
                     ValidationGroup="tarea" ErrorMessage="Máximo 200 caracteres"></asp:RegularExpressionValidator>
             </div>
             <div class="form-group">
-                <asp:Label ID="lblNuevaTareaFecha" Text="Fecha Fin" runat="server" for="calNuevaTareaFecha" />
+                <asp:Label ID="lblNuevaTareaFecha" Text="Fecha Fin:" runat="server" for="calNuevaTareaFecha" />
                 <asp:Calendar runat="server" ID="calNuevaTareaFecha" BackColor="White" BorderColor="#3366CC"
                     BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana"
                     Font-Size="8pt" ForeColor="#003399" Height="200px" Width="220px">
@@ -42,10 +42,11 @@
                     <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                     <WeekendDayStyle BackColor="#CCCCFF" />
                 </asp:Calendar>
+                <asp:Label ID="lblError" ForeColor="Red" runat="server" Text=""></asp:Label>
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
-                    <asp:Label ID="lblNuevaTareaPrioridad" Text="Prioridad" for="ddlNuevaTareaPrioridad"
+                    <asp:Label ID="lblNuevaTareaPrioridad" Text="Prioridad:" for="ddlNuevaTareaPrioridad"
                         runat="server" />
                     <asp:DropDownList ID="ddlNuevaTareaPrioridad" class="dropdown form-control" runat="server">
                         <asp:ListItem Text="Baja" Value="0" />
@@ -55,7 +56,7 @@
                     </asp:DropDownList>
                 </div>
                 <div class="form-group col-md-6">
-                    <asp:Label ID="lblNuevaTareaIdCarpeta" Text="Carpeta" for="ddlNuevaTareaIdCarpeta"
+                    <asp:Label ID="lblNuevaTareaIdCarpeta" Text="Carpeta:" for="ddlNuevaTareaIdCarpeta"
                         runat="server" />
                     <asp:DropDownList class="form-control" ID="ddlNuevaTareaIdCarpeta" runat="server">
                     </asp:DropDownList>
@@ -70,7 +71,6 @@
                     ValidationGroup="tarea" runat="server" class="btn btn-success" />
                 <asp:Button ID="btnCancelarTarea" runat="server" class="btn btn-warning" Text="Cancelar"
                     OnClick="btnCancelarTarea_Click" />
-                <asp:Label ID="lblNuevaTareaInformacionEstado" ForeColor="Red" Text="" runat="server" />
             </div>
         </div>
     </div>
