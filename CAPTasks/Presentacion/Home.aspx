@@ -77,8 +77,7 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-
-
+            <asp:Label ID="lblNoHayTareas" runat="server" Text="No se encuentran tareas en esta carpeta!" Visible="false"></asp:Label>
             <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
             <asp:Button ID="btnTareasFinalizadas" runat="server" class="btn btn-info" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />

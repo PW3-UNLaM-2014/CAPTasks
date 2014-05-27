@@ -120,6 +120,21 @@ namespace CAPTasks.Presentacion
 
             misTareas = lts.ListarMisTareasPorCarpeta(idCarpeta);
 
+            if (misTareas.Count == 0)
+            {
+                lblNoHayTareas.Visible = true;
+                ckbTareasFinalizadas.Visible = false;
+                lblTareasFinalizadas.Visible = false;
+                btnTareasFinalizadas.Visible = false;
+            }
+            else
+            {
+                lblNoHayTareas.Visible = false;
+                ckbTareasFinalizadas.Visible = true;
+                lblTareasFinalizadas.Visible = true;
+                btnTareasFinalizadas.Visible = true;
+            }
+
             gvListaTareas.DataSource = misTareas;
             gvListaTareas.DataBind();
         }
