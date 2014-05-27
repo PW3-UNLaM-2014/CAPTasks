@@ -25,7 +25,8 @@ namespace CAPTasks.Presentacion
                 Session["Email"] = Request.Cookies["Preferencias"]["Email"];
                 Session["Contrasenia"] = Request.Cookies["Preferencias"]["Contrasenia"];
                 Session["IdUsuario"] = Request.Cookies["Preferencias"]["IdUsuario"];
-                Response.Redirect("~/Presentacion/Home.aspx"); 
+                Response.Redirect("~/Presentacion/Home.aspx");
+                
             }
         }
         protected void btnRegistrarse_Click(object sender, EventArgs e)
@@ -120,7 +121,6 @@ namespace CAPTasks.Presentacion
                     cookie.Values["Email"] = miUsuario.Email;
                     cookie.Values["Contrasenia"] = miUsuario.Contrasenia;
                     cookie.Values["IdUsuario"] = (miUsuario.IdUsuario).ToString();
-                    cookie.Expires = DateTime.Now.AddMinutes(10); //Caduca en 10 minutos.
                     Response.Cookies.Add(cookie);
                 }
                 ejecutarAccion(miUsuario);
