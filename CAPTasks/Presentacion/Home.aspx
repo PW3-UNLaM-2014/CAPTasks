@@ -80,7 +80,7 @@
                 </div>
                 <!-- /.table-responsive -->
             </div>
-            <asp:Label ID="lblNoHayTareas" class="alert alert-danger" runat="server" Text="No se encuentran tareas en esta carpeta!"
+            <asp:Label ID="lblNoHayTareas" class="alert alert-info fa-with-txt" runat="server" Text="&#xf06a; No hay tareas pendientes en esta carpeta."
                 Visible="false"></asp:Label>
             <asp:CheckBox ID="ckbTareasFinalizadas" CssClass="checkbox checkbox-inline" runat="server" Text="Incluir completadas" />
             <asp:Button ID="btnTareasFinalizadas" runat="server" class="btn btn-info fa-with-txt" Text="&#xf021; Actualizar"

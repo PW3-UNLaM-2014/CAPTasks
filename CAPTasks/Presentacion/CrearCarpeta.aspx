@@ -10,7 +10,7 @@
                 Crear carpeta</h3>
             <asp:Label ID="lblNombre" runat="server" Text="Nombre:"></asp:Label>
             <asp:TextBox ID="txtNombre" class="form-control" MaxLength="20" placeholder="Escriba aqui un nombre para la carpeta" runat="server"></asp:TextBox>
-            <small><span class="glyphicon glyphicon-exclamation-sign"></span>El nombre de carpeta es unico</small>
+            <small class="text-info"><span class="glyphicon glyphicon-exclamation-sign"></span>El nombre de carpeta es unico</small>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtNombre"
                 ValidationGroup="carpeta" runat="server" ForeColor="Red" ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
             <br />

@@ -334,14 +334,31 @@ border-bottom: 1px solid #e5e5e5;
 }
 #divSessionInfo
 {
-    padding: 15px 0;
+    padding-top: 15px;
+    color:#FFF
 }
 
+.navbar 
+{
+    background-color:#428bca
+}
+.navbar a
+{
+    color: #FFF
+}
+.navbar a:hover 
+{
+    color:#CBCEFF 
+}
 #pie 
 {   
     background-color: #f8f8f8;
 }
 
+.text-info .glyphicon 
+{
+    margin-right: 3px    
+}
 .margin-bottom 
 {
     margin-bottom:20px
@@ -355,4 +372,15 @@ border-bottom: 1px solid #e5e5e5;
 {
     width:100%;
     padding:8% 17% 17% 17%
+}
+
+.validator-asterisk 
+{
+color: red;
+display: inline;
+float: left;
+right: -149px;
+margin-bottom: -20px;
+position: relative;
+top: -29px;
 }

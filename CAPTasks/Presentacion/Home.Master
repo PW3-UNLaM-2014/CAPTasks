@@ -18,18 +18,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
         <div class='container'>
             <div class="col-md-6">
-            <a class="navbar-brand" href="Home.aspx"><h4 class="text-muted">
+            <a class="navbar-brand" href="Home.aspx"><h4>
                     CAPTasks
                 </h4></a>
                 
             </div>
-            <div id="divSessionInfo" class="col-md-6 text-right text-info">
-                BIENVENIDO,
+            <div id="divSessionInfo" class="col-md-6 text-right">
+                Bienvenido,
                 <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
-                <asp:Button ID="btnSalir" runat="server" Text="&#xf08b; Salir" OnClick="btnSalir_Click" class="btn btn-default fa-with-txt ">
+                <asp:Button ID="btnSalir" runat="server" Text="&#xf08b; Salir" OnClick="btnSalir_Click" class="btn btn-default fa-with-txt btn-sm">
                 </asp:Button>
             </div>
         </div>
