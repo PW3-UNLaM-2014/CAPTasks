@@ -1,6 +1,6 @@
 --USUARIO REGISTRADO:
 --Email: cegisele@hotmail.com
---Contraseña: abQW12
+--Contrasenia: abQW12
 
 --CUENTA DE GMAIL GRUPAL:
 --unlampw3@gmail.com
@@ -21,18 +21,9 @@ VALUES
 --INSERT INTO [dbo].[Carpetas]
 --([IdUsuario],[Nombre],[Descripcion])
 --VALUES
---((SELECT IdUsuario FROM dbo.Usuarios),'General','Carpeta creada por defecto para las tareas a las que no se les asigna carpeta')
-
---INSERT INTO [dbo].[Carpetas]
---([IdUsuario],[Nombre],[Descripcion])
---VALUES
 --((SELECT IdUsuario FROM dbo.Usuarios),'Ejercicios Varios','Ejercicios de la catedra')
 
 /***INSERT PARA TABLA TAREAS ***/
---INSERT INTO [dbo].[Tareas]
---([IdCarpeta],[IdUsuario],[Nombre],[Descripcion],[FechaFin],[Prioridad],[Estado])
---VALUES
---((SELECT IdCarpeta FROM dbo.Carpetas WHERE Nombre='General'),(SELECT IdUsuario FROM dbo.Usuarios),'Primer Parcial','Recordar preparar resumenes','2014-06-11',2,0)
 
 --INSERT INTO [dbo].[Tareas]
 --([IdCarpeta],[IdUsuario],[Nombre],[Descripcion],[FechaFin],[Prioridad],[Estado])
