@@ -8,33 +8,35 @@
     <link rel="Stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
     <link rel="Stylesheet" type="text/css" media="all" href="font-awesome/css/font-awesome.css" />
     <!-- SB Admin CSS  -->
-    <link rel="Stylesheet" type="text/css" media="all" href="css/sb-admin.css" />
+    <link rel="Stylesheet" type="text/css" media="all" href="css/captasks.css" />
+    <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Core Scripts -->
     <script language="javascript" type="text/javascript" src="js/jquery-1.10.2.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="clearfix">
-    <div class="col-md-6">
-            <h1>
-                CAPTasks
-            </h1>
-        </div>
-        <div class="col-md-6">
-
-            BIENVENIDO,
-            <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
-            <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" class="btn btn-default" />
+    <div class="container">
+        <div class='header clearfix'>
+            <div class="col-md-6">
+                <h4 class="text-muted">
+                    CAPTasks
+                </h4>
+            </div>
+            <div class="col-md-6 text-right text-info">
+                BIENVENIDO,
+                <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
+                <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" class="btn btn-default" >
+                </asp:Button>
+            </div>
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    <div id="pie">
+    <div id="pie" class="fixed-bottom col-md-12">
         <div class="modal-footer">
             <b>Copyright 2014 - Todos los derechos reservados</b>
         </div>

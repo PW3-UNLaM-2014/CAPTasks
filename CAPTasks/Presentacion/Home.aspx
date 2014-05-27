@@ -40,7 +40,7 @@
             <br />
             <a href="CrearCarpeta.aspx" class="btn btn-primary">Crear Carpeta</a>
         </div>
-        <div id="main" class="col-md-9">
+        <div id="main" class="col-md-9 page-wrapper">
             <h2>
                 Lista de tareas
             </h2>
@@ -81,7 +81,7 @@
 
             <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
             <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
-            <asp:Button ID="btnTareasFinalizadas" runat="server" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
+            <asp:Button ID="btnTareasFinalizadas" runat="server" class="btn btn-info" Text="Actualizar" OnClick="btnTareasFinalizadas_Click" />
             <!-- Button trigger modal -->
             <asp:Button Text="Nueva Tarea" class="btn btn-primary" PostBackUrl="~/Presentacion/CrearTarea.aspx"
                 runat="server" />

@@ -8,13 +8,11 @@
     <link rel="Stylesheet" type="text/css" href="css/bootstrap.min.css" media="all" />
     <link rel="Stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" media="all" />
     <!-- SB Admin CSS - Include with every page -->
-    <link rel="Stylesheet" type="text/css" href="css/sb-admin.css" media="all" />
+    <link rel="Stylesheet" type="text/css" href="css/captasks.css" media="all" />
+    <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Core Scripts - Include with every page -->
     <script language="javascript" type="text/javascript" src="js/jquery-1.10.2.js"></script>
     <script language="javascript" type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script language="javascript" type="text/javascript" src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <!-- SB Admin Scripts - Include with every page -->
-    <script language="javascript" type="text/javascript" src="js/sb-admin.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -34,7 +32,7 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    <div id="pie">
+    <div id="pie" class="fixed-bottom col-md-12">
         <div class="modal-footer">
             <b>Copyright 2014 - Todos los derechos reservados</b>
         </div>

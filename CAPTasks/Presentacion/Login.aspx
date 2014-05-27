@@ -7,36 +7,40 @@
 <asp:Content ID="ContentLogin" ContentPlaceHolderID="ContentHeaderLogin" runat="server">
     <%--INICIO DE SESSION --%>
     <div class="col-md-6">
+        <div class="navbar-form navbar-right">
+            <div class="form-group">
+                <asp:Label ID="lblEmail" class="sr-only" runat="server" Text="Email:"></asp:Label>
+                <asp:TextBox ID="txtEmail" class="form-control input-sm" MaxLength="20" runat="server"
+                    placeholder="Ingrese email"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtEmail"
+                    ValidationGroup="ingresar" Display="Dynamic" runat="server" ForeColor="Red" Text="*"
+                    ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtEmail"
+                    ValidationGroup="ingresar" Display="Dynamic" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                    ForeColor="Red" runat="server" Text="!" ErrorMessage="!Formato invalido"></asp:RegularExpressionValidator>
+            </div>
+            <div class="form-group">
+                <asp:Label ID="lblContrasenia" class="sr-only" runat="server" Text="Contraseña:"></asp:Label>
+                <asp:TextBox ID="txtContrasenia" class="form-control input-sm" TextMode="Password"
+                    runat="server" placeholder="Ingrese contraseña"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtContrasenia"
+                    ValidationGroup="ingresar" Display="Dynamic" ForeColor="Red" runat="server" Text="*"
+                    ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
+                <asp:ValidationSummary ID="ValidationSummary1" ShowSummary="true" HeaderText="Preste atención a estos errores y vuelva a intentarlo:"
+                    DisplayMode="BulletList" ForeColor="Red" ValidationGroup="ingresar" runat="server"
+                    Width="459px" />
+            </div>
         <div class="form-group">
-            <asp:Label ID="lblEmail" class="sr-only" runat="server" Text="Email:"></asp:Label>
-            <asp:TextBox ID="txtEmail" class="form-control input-sm" MaxLength="20" runat="server"
-                placeholder="Ingrese email"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtEmail"
-                ValidationGroup="ingresar" Display="Dynamic" runat="server" ForeColor="Red" Text="*"
-                ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtEmail"
-                ValidationGroup="ingresar" Display="Dynamic" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-                ForeColor="Red" runat="server" Text="!" ErrorMessage="!Formato invalido"></asp:RegularExpressionValidator>
+            <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"
+                class="btn btn-primary" OnClick="btnIngresar_Click" />
+            <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
         </div>
-        <div class="form-group">
-            <asp:Label ID="lblContrasenia" class="sr-only" runat="server" Text="Contraseña:"></asp:Label>
-            <asp:TextBox ID="txtContrasenia" class="form-control input-sm" TextMode="Password"
-                runat="server" placeholder="Ingrese contraseña"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtContrasenia"
-                ValidationGroup="ingresar" Display="Dynamic" ForeColor="Red" runat="server" Text="*"
-                ErrorMessage="*Campo obligatorio"></asp:RequiredFieldValidator>
-            <asp:ValidationSummary ID="ValidationSummary1" ShowSummary="true" HeaderText="Preste atención a estos errores y vuelva a intentarlo:"
-                DisplayMode="BulletList" ForeColor="Red" ValidationGroup="ingresar" runat="server"
-                Width="459px" />
         </div>
-        <div class="checkbox">
+        <div class="form-group checkbox col-md-12 col-md-offset-2">
             <label>
-                <asp:CheckBox ID="ckbRecordarme" Text="Recordar mis datos" runat="server" />
+                <asp:CheckBox ID="ckbRecordarme" class="text-muted" Text="Recordar mis datos" runat="server" />
             </label>
         </div>
-        <asp:Button ID="btnIngresar" runat="server" ValidationGroup="ingresar" Text="Iniciar Sesión"
-            class="btn btn-primary" OnClick="btnIngresar_Click" />
-        <asp:Label ID="lblMensaje1" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentRegistracion" runat="server">

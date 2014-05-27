@@ -13,15 +13,6 @@ namespace CAPTasks.Presentacion {
     public partial class WebForm1 {
         
         /// <summary>
-        /// Control lblNuevaTareaInformacionEstado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNuevaTareaInformacionEstado;
-        
-        /// <summary>
         /// Control lblNuevaTareaNombre.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,15 @@ namespace CAPTasks.Presentacion {
         protected global::System.Web.UI.WebControls.Calendar calNuevaTareaFecha;
         
         /// <summary>
+        /// Control lblError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
         /// Control lblNuevaTareaPrioridad.
         /// </summary>
         /// <remarks>
@@ -155,5 +155,14 @@ namespace CAPTasks.Presentacion {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardarTarea;
+        
+        /// <summary>
+        /// Control btnCancelarTarea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelarTarea;
     }
 }
