@@ -18,27 +18,30 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div class="container">
-        <div class='header clearfix'>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class='container'>
             <div class="col-md-6">
-                <h4 class="text-muted">
+            <a class="navbar-brand" href="Home.aspx"><h4 class="text-muted">
                     CAPTasks
-                </h4>
+                </h4></a>
+                
             </div>
-            <div class="col-md-6 text-right text-info">
+            <div id="divSessionInfo" class="col-md-6 text-right text-info">
                 BIENVENIDO,
                 <asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label>
-                <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" class="btn btn-default" >
+                <asp:Button ID="btnSalir" runat="server" Text="Salir" OnClick="btnSalir_Click" class="btn btn-default">
                 </asp:Button>
             </div>
         </div>
+    </div>
+    <div class="container">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    <div id="pie" class="fixed-bottom col-md-12">
-        <div class="modal-footer">
-            <b>Copyright 2014 - Todos los derechos reservados</b>
+    <div id="pie" class="fixed-bottom clearfix">
+        <div class="modal-footer container">
+            <small class="text-muted">Copyright 2014 - Todos los derechos reservados</small>
         </div>
     </div>
 </body>

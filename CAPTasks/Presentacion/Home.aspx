@@ -10,8 +10,7 @@
             <h2>
                 Carpetas
             </h2>
-            <asp:BulletedList ID="bullCarpetas" DisplayMode="LinkButton" runat="server" 
-                onclick="bullCarpetas_Click">
+            <asp:BulletedList ID="bullCarpetas" DisplayMode="LinkButton" runat="server" onclick="bullCarpetas_Click">
             </asp:BulletedList>
             <%--<asp:GridView ID="gvCarpetas" AutoGenerateColumns="False" runat="server" OnLoad="Page_Load"
                  CellPadding="4" ForeColor="#333333"
@@ -37,10 +36,11 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>--%>
+
             <br />
             <a href="CrearCarpeta.aspx" class="btn btn-primary">Crear Carpeta</a>
         </div>
-        <div id="main" class="col-md-9 page-wrapper">
+        <div id="page-wrapper" class="col-md-9">
             <h2>
                 Lista de tareas
             </h2>
@@ -86,5 +86,4 @@
                 runat="server" />
         </div>
     </div>
-</div>   
 </asp:Content>
