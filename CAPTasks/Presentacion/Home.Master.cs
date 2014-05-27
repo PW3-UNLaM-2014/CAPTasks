@@ -25,9 +25,7 @@ namespace CAPTasks.Presentacion
 
         protected void btnSalir_Click(object sender, EventArgs e)
         {
-            //Request.Cookies.Remove("Preferencias");
-            //Request.Cookies.Clear();
-            //FormsAuthentication.SignOut(); 
+            Response.Cookies["Preferencias"].Expires = DateTime.Now.AddDays(-1);
             Session.Abandon();
             Session.Clear();
             Response.Redirect("~/Presentacion/Login.aspx");
