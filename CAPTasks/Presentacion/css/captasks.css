@@ -24,6 +24,7 @@ body {
 #page-wrapper {
     padding: 0 15px;
     background-color: #fff;
+min-height: 500px;
 }
 
 @media(min-width:768px) {
@@ -31,6 +32,7 @@ body {
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
         border-right: 1px solid #e7e7e7;
+min-height: 500px;
     }
 }
 
@@ -328,7 +330,6 @@ table.dataTable thead .sorting:after {
 .fixed-bottom 
 {
     bottom:0;
-    position:fixed
     
 }
 .header {
@@ -338,3 +339,10 @@ border-bottom: 1px solid #e5e5e5;
 {
     padding: 15px 0;
 }
+
+#pie 
+{
+    
+    background-color: #f8f8f8;
+    }
+

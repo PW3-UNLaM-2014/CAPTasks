@@ -73,7 +73,7 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-                <div class="row fixed-bottom">
+                <div id="menuTareas">
                     <asp:CheckBox ID="ckbTareasFinalizadas" runat="server" />
                     <asp:Label ID="lblTareasFinalizadas" runat="server" Text="Incluir completadas"></asp:Label>
                     <asp:Button ID="btnTareasFinalizadas" runat="server" class="btn btn-info" Text="Actualizar"
