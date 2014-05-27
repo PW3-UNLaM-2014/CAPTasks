@@ -14,6 +14,8 @@ namespace CAPTasks.Presentacion
     {
         CarpetaServicios cs = new CarpetaServicios();
 
+        int carpeta;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -48,23 +50,23 @@ namespace CAPTasks.Presentacion
 
         protected void btnTareasFinalizadas_Click(object sender, EventArgs e)
         {
-            if (ckbTareasFinalizadas.Checked == true)
-            {
-                int idUsuario;
-                idUsuario = Convert.ToInt32(Session["IdUsuario"]);
+                if (ckbTareasFinalizadas.Checked == true)
+                {
+                    int idUsuario;
+                    idUsuario = Convert.ToInt32(Session["IdUsuario"]);
 
-                List<LecturaTarea> todasMisTareas = new List<LecturaTarea>();
-                LecturaTareaServicios lts = new LecturaTareaServicios();
+                    List<LecturaTarea> todasMisTareas = new List<LecturaTarea>();
+                    LecturaTareaServicios lts = new LecturaTareaServicios();
 
-                todasMisTareas = lts.ListarTodasMisTareas(idUsuario);
+                    todasMisTareas = lts.ListarTodasMisTareas(idUsuario);
 
-                gvListaTareas.DataSource = todasMisTareas;
-                gvListaTareas.DataBind();
-            }
-            else
-            {
-                CargaTabla();
-            }
+                    gvListaTareas.DataSource = todasMisTareas;
+                    gvListaTareas.DataBind();
+                }
+                else
+                {
+                    CargaTabla();
+                } 
         }
 
         protected void btnCompletar_Click(object sender, EventArgs e)
@@ -83,18 +85,14 @@ namespace CAPTasks.Presentacion
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-
                 string estado = e.Row.Cells[6].Text.ToString();
-
 
                 if (estado == "Completada")
                 {
                     Button btn = (Button)e.Row.Cells[7].FindControl("btnCompletar");
                     btn.Visible = false;
                 }
-
             }
-
         }
 
         //PARA CARPETAS:
@@ -102,8 +100,28 @@ namespace CAPTasks.Presentacion
         {
             bullCarpetas.DataSource = cs.ListarCarpetas(idBuscar);
             bullCarpetas.DataTextField = "Nombre";
-            bullCarpetas.DataValueField = "IdCarpeta";
-            bullCarpetas.DataBind();        
+            bullCarpetas.DataValueField = "IdUsuario";
+            bullCarpetas.DataBind();
+        }
+
+        protected void bullCarpetas_Click(object sender, BulletedListEventArgs e)
+        {
+            ListItem li = bullCarpetas.Items[e.Index];
+            int idCarpeta = int.Parse(li.Value);
+
+            CargaTablaPorCarpeta(idCarpeta);
+            
+        }
+
+        public void CargaTablaPorCarpeta(int idCarpeta)
+        {
+            List<LecturaTarea> misTareas = new List<LecturaTarea>();
+            LecturaTareaServicios lts = new LecturaTareaServicios();
+
+            misTareas = lts.ListarMisTareasPorCarpeta(idCarpeta);
+
+            gvListaTareas.DataSource = misTareas;
+            gvListaTareas.DataBind();
         }
     }
 }
