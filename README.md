@@ -27,15 +27,15 @@ Los datos solicitados serán: 
 
 ● Contraseña. Máximo 20 caracteres. Obligatorio.  
 
-○  Se deberá validar que el formato del dato ingresado sea un email. 
+    ○  Se deberá validar que el formato del dato ingresado sea un email. 
 
-○ La contraseña al menos deberá contener 2 números y una letra mayúscula.  
+    ○ La contraseña al menos deberá contener 2 números y una letra mayúscula.  
 
-○ Deberá existir otro campo donde el usuario deba volver a ingresar la contraseña 
+    ○ Deberá existir otro campo donde el usuario deba volver a ingresar la contraseña 
 
-para validar su correcta escritura. 
+    para validar su correcta escritura. 
 
-○ Ambos  campos  de  contraseña  no  deben  ser  visibles para el usuario  sino que 
+    ○ Ambos  campos  de  contraseña  no  deben  ser  visibles para el usuario  sino que 
 
 deben enmascarar el valor correspondiente. 
 
@@ -83,11 +83,11 @@ Los datos solicitados serán: 
 
 ● Contraseña. Máximo 20 caracteres. Obligatorio.  
 
-○  Se deberá validar que el formato del dato ingresado sea un email. 
+    ○  Se deberá validar que el formato del dato ingresado sea un email. 
 
-○ El campo de contraseña no debe ser visible para el usuario sino que debe estar 
+    ○ El campo de contraseña no debe ser visible para el usuario sino que debe estar 
 
-enmascarado. 
+    enmascarado. 
 
 ● (*3)  Recordarme.  Checkbox  que  al  hacer  login  y  estar  marcado,  creará  una  cookie 
 
